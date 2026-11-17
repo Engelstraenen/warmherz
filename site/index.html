@@ -1,0 +1,465 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WARMHERZ · Heizung & Wärmepumpe in Bielefeld (Demo)</title>
+<meta name="description" content="Demo-Webseite eines fiktiven Familienbetriebs für Wärmepumpen und Heizung in Bielefeld. Förderrechner, Ein Tag mit Monteur Lukas, Jobs.">
+<meta name="theme-color" content="#1A120D">
+<link rel="preload" href="assets/img/team.webp" as="image">
+<link rel="stylesheet" href="assets/fonts/fonts.css">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath d='M32 56S8 41 8 24a12 12 0 0 1 24-4 12 12 0 0 1 24 4c0 17-24 32-24 32z' fill='%23D9622B'/%3E%3C/svg%3E">
+</head>
+<body>
+
+<div class="demo-bar">Demo von PROJEKT EX · WARMHERZ ist eine erfundene Firma · alle Personen, Zahlen und Stimmen sind Beispiele</div>
+
+<header class="nav" id="nav">
+  <a href="#top" class="logo" aria-label="WARMHERZ Startseite">
+    <svg viewBox="0 0 40 40" aria-hidden="true"><path class="logo-heart" d="M20 35S4 25.5 4 14.5A8 8 0 0 1 20 11a8 8 0 0 1 16 3.5C36 25.5 20 35 20 35z"/><path class="logo-flame" d="M20 29c-3.6 0-6-2.4-6-5.6 0-3.4 3-5 3.6-8.4 2.2 1.6 2.8 3.6 2.6 5.4 1-.6 1.8-1.8 2-3.2 2 1.6 3.8 3.8 3.8 6.2 0 3.2-2.4 5.6-6 5.6z"/></svg>
+    <span>WARMHERZ</span>
+  </a>
+  <nav class="links" aria-label="Hauptmenü">
+    <a href="#tag">Ein Tag</a>
+    <a href="#leistungen">Leistungen</a>
+    <a href="#waermepumpe">Wärmepumpe</a>
+    <a href="#foerderung">Förderung</a>
+    <a href="#platz" class="teal-link">Dein Platz</a>
+  </nav>
+  <a href="#foerderung" class="chip-count" aria-label="Countdown bis Förderung sinkt"><span class="dot"></span><b data-days>–</b>&nbsp;Tage<span class="lbl-long">&nbsp;Bonus</span></a>
+  <button class="burger" aria-label="Menü öffnen" aria-expanded="false"><i></i><i></i></button>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <div class="hero-media">
+    <img src="assets/img/team.webp" alt="Das WARMHERZ-Team vor der Werkstatt, eine Lücke in der Reihe" class="hero-img" fetchpriority="high">
+    <div class="hero-shade"></div>
+    <div class="heat" aria-hidden="true"></div>
+
+    <!-- Hotspots über den Köpfen -->
+    <button class="person" style="--x:20.3%;--y:31%" data-name="Heinz, 61" data-role="Meister & Inhaber" data-quote="Seit 1987 machen wir Bielefeld warm.">
+      <span class="ring"></span></button>
+    <button class="person" style="--x:33%;--y:34%" data-name="Lukas, 31" data-role="Monteur seit 2019" data-quote="Am liebsten Altbauten. Da sieht man den Unterschied.">
+      <span class="ring"></span></button>
+    <button class="person" style="--x:43.6%;--y:40%" data-name="Lea, 19" data-role="Azubi, 2. Lehrjahr" data-quote="Ich wollte nie ins Büro.">
+      <span class="ring"></span></button>
+    <button class="person" style="--x:55.6%;--y:38%" data-name="Sabine, 45" data-role="Büro & Termine" data-quote="Ich sorge dafür, dass Lukas pünktlich klingelt.">
+      <span class="ring"></span></button>
+    <button class="person" style="--x:70.6%;--y:35%" data-name="Murat, 38" data-role="Kundendienst" data-quote="Samstags auch. Wenn's kalt ist, ist's kalt.">
+      <span class="ring"></span></button>
+    <button class="person" style="--x:83.3%;--y:31%" data-name="Finn, 26" data-role="Monteur" data-quote="Wärmepumpe, Bad, Fußboden: hier lernst du alles.">
+      <span class="ring"></span></button>
+
+    <!-- Die Lücke -->
+    <a href="#platz" class="gap" style="--x:63%;--y:31%" aria-label="Hier fehlt noch jemand. Zu den Jobs">
+      <svg viewBox="0 0 100 260" aria-hidden="true"><path d="M50 8a22 22 0 1 1 0 44 22 22 0 0 1 0-44zM18 74c8-10 20-14 32-14s24 4 32 14c8 10 10 24 10 40v70H8v-70c0-16 2-30 10-40zM20 184h26v70H20zM54 184h26v70H54z"/></svg>
+      <span class="gap-label">Dein Platz?</span>
+    </a>
+    <div class="person-card" role="status" aria-live="polite"><b></b><small></small><em></em></div>
+  </div>
+
+  <div class="hero-copy">
+    <p class="kicker"><span class="line"></span>Familienbetrieb seit 1987 · Bielefeld</p>
+    <h1 class="split">Wir machen Bielefeld <em>warm.</em></h1>
+    <div class="hero-row">
+      <p class="lead">Wärmepumpen, Heizung und Bad. Von sechs Leuten, die Sie mit Namen kennen. <span class="nowrap">Und einer Lücke, die wir gern füllen.</span></p>
+    <div class="ctas">
+      <a href="#foerderung" class="btn ember">Zuschuss berechnen <span>→</span></a>
+      <a href="#platz" class="btn teal ghost">Hier fehlt noch jemand <span>→</span></a>
+    </div>
+    </div>
+  </div>
+  <div class="scroll-hint" aria-hidden="true"><span></span>Scrollen</div>
+</section>
+
+<!-- ============ COUNTDOWN-BAND ============ -->
+<section class="band" id="countdown" aria-label="Förder-Countdown">
+  <div class="band-inner">
+    <div class="band-count">
+      <div><b data-cd="d">00</b><small>Tage</small></div>
+      <div><b data-cd="h">00</b><small>Std</small></div>
+      <div><b data-cd="m">00</b><small>Min</small></div>
+      <div><b data-cd="s">00</b><small>Sek</small></div>
+    </div>
+    <p class="band-text">bis der <b>Förderbonus sinkt</b>. Am 1. Februar 2027 fällt der Klimageschwindigkeits&shy;bonus von 16 auf 12 Prozent.</p>
+    <a href="#foerderung" class="btn light">Meinen Zuschuss sichern →</a>
+  </div>
+  <div class="marquee" aria-hidden="true"><div class="track">
+    <span>Wärmepumpe</span><span>✦</span><span>Heizungstausch</span><span>✦</span><span>Fußbodenheizung</span><span>✦</span><span>Bad</span><span>✦</span><span>Wartung</span><span>✦</span><span>Notdienst 24/7</span><span>✦</span><span>Förderanträge</span><span>✦</span>
+    <span>Wärmepumpe</span><span>✦</span><span>Heizungstausch</span><span>✦</span><span>Fußbodenheizung</span><span>✦</span><span>Bad</span><span>✦</span><span>Wartung</span><span>✦</span><span>Notdienst 24/7</span><span>✦</span><span>Förderanträge</span><span>✦</span>
+  </div></div>
+</section>
+
+<!-- ============ EIN TAG MIT LUKAS ============ -->
+<section class="day" id="tag">
+  <div class="day-intro">
+    <p class="kicker dark"><span class="line"></span>Ein Tag mit Lukas</p>
+    <h2 class="reveal">So sieht es aus, wenn wir <em>zu Ihnen</em> kommen.</h2>
+    <p class="sub reveal">Scrollen Sie durch einen ganz normalen Dienstag. Sie sehen, wer bei Ihnen klingelt. Und wer bei uns anfangen will, sieht, wie sich so ein Tag anfühlt.</p>
+    <div class="legend"><span class="tag k">für Kundinnen und Kunden</span><span class="tag b">für Bewerberinnen und Bewerber</span></div>
+  </div>
+
+  <div class="day-stage">
+    <aside class="clock-col">
+      <div class="clock">
+        <svg class="sun-arc" viewBox="0 0 200 110" aria-hidden="true"><path d="M10 100a90 90 0 0 1 180 0" /><circle class="sun" r="9" cx="10" cy="100"/></svg>
+        <div class="time" aria-live="polite"><span data-hh>06</span><i>:</i><span data-mm>58</span></div>
+        <div class="clock-label" data-clabel>Werkstatt, Bielefeld-Sieker</div>
+        <div class="progress"><span></span></div>
+      </div>
+    </aside>
+
+    <div class="scenes">
+      <article class="scene" data-time="06:58" data-label="Werkstatt, Bielefeld-Sieker" data-sky="#2A2230">
+        <figure class="shot"><img src="assets/img/kaffee.webp" alt="Das Team trinkt morgens Kaffee in der Werkstatt" loading="lazy"></figure>
+        <h3>Der Tag fängt mit Kaffee an. <em>Nicht mit Stress.</em></h3>
+        <p>Zehn Minuten zusammen, bevor alle losfahren. Wer heute wohin fährt, steht schon in der App.</p>
+        <div class="tags"><span class="tag k">Echte Leute, kein Callcenter</span><span class="tag b">Ein Team, das zusammenhält</span></div>
+      </article>
+      <article class="scene" data-time="07:40" data-label="Unterwegs nach Schildesche" data-sky="#3D3140">
+        <figure class="shot"><img src="assets/img/transporter.webp" alt="Lukas fährt den Transporter, Azubi Lea sitzt daneben" loading="lazy"></figure>
+        <h3>Lukas fährt. <em>Lea lernt mit.</em></h3>
+        <p>Lea ist im zweiten Lehrjahr. Bei uns fahren Azubis vom ersten Tag an mit auf die Baustelle, nicht nur ins Lager.</p>
+        <div class="tags"><span class="tag k">Sie wissen vorher, wer klingelt</span><span class="tag b">Azubis sind von Anfang an dabei</span></div>
+      </article>
+      <article class="scene" data-time="08:15" data-label="Familie Hartmann, Schildesche" data-sky="#553A33">
+        <figure class="shot"><img src="assets/img/baustelle.webp" alt="Lukas mit Schuhüberziehern legt Schutzfolie aus" loading="lazy"></figure>
+        <h3>Wir gehen, wie wir gekommen sind: <em>sauber.</em></h3>
+        <p>Überzieher an die Schuhe, Folie auf den Boden, bevor das erste Werkzeug den Koffer verlässt.</p>
+        <div class="tags"><span class="tag k">Ihr Parkett bleibt heil</span><span class="tag b">Gutes Werkzeug, klare Abläufe</span></div>
+      </article>
+      <article class="scene" data-time="11:30" data-label="Technikraum im Keller" data-sky="#6A4331">
+        <figure class="shot"><img src="assets/img/lea.webp" alt="Azubi Lea verpresst ein Kupferrohr, Lukas erklärt" loading="lazy"></figure>
+        <h3>Lea verpresst ihr erstes Rohr. <em>Lukas schaut zu.</em></h3>
+        <p>Bei uns lernt man nicht aus dem Buch. Man lernt neben jemandem, der es seit Jahren macht und Zeit zum Erklären hat.</p>
+        <div class="tags"><span class="tag k">Zwei Paar Hände, doppelt geprüft</span><span class="tag b">Hier lernst du richtig</span></div>
+      </article>
+      <article class="scene" data-time="14:30" data-label="Inbetriebnahme" data-sky="#7A4A2E">
+        <figure class="shot"><img src="assets/img/display.webp" alt="Lukas erklärt einem Paar das Display der Wärmepumpe" loading="lazy"></figure>
+        <h3>Die Wärmepumpe läuft. <em>Jetzt wird erklärt.</em></h3>
+        <p>Wir gehen erst, wenn Sie Ihre neue Heizung selbst bedienen können. Und wenn Sie wissen, wie viel Förderung Sie bekommen.</p>
+        <a href="#foerderung" class="mini-calc"><span>Ihr Zuschuss heute bis zu</span><b data-maxgrant>19.600 €</b><i>→ berechnen</i></a>
+        <div class="tags"><span class="tag k">Einweisung inklusive</span><span class="tag b">Arbeit, die man sieht</span></div>
+      </article>
+      <article class="scene" data-time="16:30" data-label="Zurück in der Werkstatt" data-sky="#6B3A22">
+        <figure class="shot"><img src="assets/img/feierabend.webp" alt="Lukas schließt den Transporter, Feierabend" loading="lazy"></figure>
+        <h3>Feierabend um halb fünf. <em>Der Bericht ist schon fertig.</em></h3>
+        <p>Fotos, Stunden, Material: alles schon auf der Baustelle in die Werkakte-App getippt. Abends wartet kein Papierkram.</p>
+        <div class="tags"><span class="tag b">Freizeit ist Freizeit</span><span class="tag k">Saubere Doku für Ihre Förderung</span></div>
+      </article>
+      <article class="scene" data-time="19:00" data-label="Familie Hartmann, abends" data-sky="#24160F">
+        <figure class="shot"><img src="assets/img/familie.webp" alt="Familie abends im warmen Wohnzimmer, Kind barfuß auf dem Boden" loading="lazy"></figure>
+        <h3>Abends ist es warm. <em>Überall.</em></h3>
+        <p>Die Kleine läuft barfuß. Der Öltank im Keller ist Geschichte. Und Lukas sitzt längst zu Hause.</p>
+        <div class="two-doors">
+          <a href="#foerderung" class="door ember"><small>Das will ich auch</small>Zuschuss berechnen →</a>
+          <a href="#platz" class="door teal"><small>Das will ich machen</small>Dein Platz im Team →</a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ LEISTUNGEN ============ -->
+<section class="services" id="leistungen">
+  <div class="wrap">
+    <p class="kicker dark"><span class="line"></span>Was wir machen</p>
+    <h2 class="reveal">Alles, was Ihr Haus <em>warm</em> macht. Aus einer Hand.</h2>
+    <div class="svc-grid">
+      <article class="svc" data-tilt>
+        <span class="svc-no">01</span>
+        <svg viewBox="0 0 48 48" aria-hidden="true"><rect x="6" y="12" width="36" height="26" rx="3"/><circle cx="20" cy="25" r="8"/><path d="M20 17v16M12 25h16M14.5 19.5l11 11M25.5 19.5l-11 11"/><path d="M33 18h5M33 24h5M33 30h5"/></svg>
+        <h3>Wärmepumpe</h3><p>Luft-Wasser, Erdwärme oder Hybrid. Mit raumweiser Heizlast statt Daumenregel.</p>
+        <span class="svc-more">2–3 Tage Einbau</span>
+      </article>
+      <article class="svc" data-tilt>
+        <span class="svc-no">02</span>
+        <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M10 40V14l14-8 14 8v26z"/><path d="M18 40V28h12v12"/><path d="M8 40h32"/></svg>
+        <h3>Heizungstausch</h3><p>Öl oder Gas raus, neue Technik rein. Alter Tank wird fachgerecht entsorgt.</p>
+        <span class="svc-more">inkl. Rückbau</span>
+      </article>
+      <article class="svc" data-tilt>
+        <span class="svc-no">03</span>
+        <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M6 36h36"/><path d="M8 30c4-6 8 6 12 0s8 6 12 0 8 6 10 2"/><path d="M8 22c4-6 8 6 12 0s8 6 12 0 8 6 10 2"/></svg>
+        <h3>Fußbodenheizung</h3><p>Auch nachträglich: gefräst in den alten Estrich, ohne den Boden rauszureißen.</p>
+        <span class="svc-more">ab 1 Tag pro Raum</span>
+      </article>
+      <article class="svc" data-tilt>
+        <span class="svc-no">04</span>
+        <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M8 26h32v4a10 10 0 0 1-10 10H18A10 10 0 0 1 8 30z"/><path d="M12 26V10a4 4 0 0 1 8 0"/><path d="M16 44l2-4M32 44l-2-4"/></svg>
+        <h3>Bad</h3><p>Vom Gäste-WC bis zum barrierefreien Bad. Fliesen, Wasser, Wärme von einem Team.</p>
+        <span class="svc-more">fester Endtermin</span>
+      </article>
+      <article class="svc" data-tilt>
+        <span class="svc-no">05</span>
+        <svg viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="16"/><path d="M24 14v10l7 5"/></svg>
+        <h3>Wartung & Notdienst</h3><p>Jährliche Wartung, Fernüberwachung auf Wunsch. Samstags erreichbar, im Winter rund um die Uhr.</p>
+        <span class="svc-more">24/7 im Winter</span>
+      </article>
+      <article class="svc" data-tilt>
+        <span class="svc-no">06</span>
+        <svg viewBox="0 0 48 48" aria-hidden="true"><path d="M10 6h20l8 8v28H10z"/><path d="M30 6v8h8"/><path d="M16 24h16M16 30h16M16 36h10"/></svg>
+        <h3>Förderanträge</h3><p>Wir füllen den Antrag mit Ihnen aus und reichen alle Nachweise ein. Sie unterschreiben nur.</p>
+        <span class="svc-more">kostenlos für Kunden</span>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WÄRMEPUMPE INTERAKTIV ============ -->
+<section class="hp" id="waermepumpe">
+  <div class="wrap hp-grid">
+    <div class="hp-copy">
+      <p class="kicker"><span class="line"></span>So funktioniert's</p>
+      <h2 class="reveal">Aus <em>1 Teil Strom</em> werden <span data-cop-big>3,4</span> Teile Wärme.</h2>
+      <p class="sub">Ziehen Sie den Regler auf die Außentemperatur von heute. Das Haus reagiert sofort. Tippen Sie auf die leuchtenden Punkte, um zu sehen, was wo eingebaut wird.</p>
+      <label class="temp-ctl">
+        <span>Draußen</span><b data-tout>2 °C</b>
+        <input type="range" min="-15" max="15" value="2" step="1" data-temp aria-label="Außentemperatur">
+        <span class="scale"><i>−15 °C</i><i>0</i><i>+15 °C</i></span>
+      </label>
+      <div class="energy">
+        <div class="ebar"><span class="e-strom" style="flex:1">Strom 1</span><span class="e-umwelt" data-umwelt style="flex:2.4">Umwelt 2,4</span></div>
+        <p class="enote">Beispielgerät, Vorlauf 35 °C. Je milder es draußen ist, desto mehr Wärme kommt gratis aus der Luft.</p>
+      </div>
+      <div class="hp-info" aria-live="polite"><b data-info-t>Außengerät</b><p data-info-p>Holt Wärme aus der Luft, sogar bei −15 °C. Steht leise im Garten, etwa so laut wie ein Kühlschrank in ein paar Metern.</p></div>
+    </div>
+
+    <div class="house-wrap">
+      <svg class="house" viewBox="0 0 640 520" role="img" aria-label="Haus im Querschnitt mit Wärmepumpe">
+        <defs>
+          <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2B3550" data-sky1/><stop offset="1" stop-color="#6C5A66" data-sky2/></linearGradient>
+          <linearGradient id="room" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFE9D2"/><stop offset="1" stop-color="#FBD5AE"/></linearGradient>
+          <radialGradient id="glow" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#FF9B57" stop-opacity=".55"/><stop offset="1" stop-color="#FF9B57" stop-opacity="0"/></radialGradient>
+        </defs>
+        <rect width="640" height="520" fill="url(#sky)" rx="18"/>
+        <g class="snow" data-snow></g>
+        <rect x="0" y="430" width="640" height="90" fill="#3A2A20"/>
+        <rect x="0" y="426" width="640" height="8" fill="#5B4636" data-ground/>
+        <!-- Haus -->
+        <path d="M180 170 L380 60 L580 170 Z" fill="#7C3B22"/>
+        <rect x="200" y="170" width="360" height="260" fill="#F1E3D2"/>
+        <rect x="214" y="186" width="160" height="104" fill="url(#room)" class="room" data-room="1"/>
+        <rect x="386" y="186" width="160" height="104" fill="url(#room)" class="room" data-room="2"/>
+        <rect x="214" y="302" width="332" height="116" fill="url(#room)" class="room" data-room="3"/>
+        <rect x="200" y="430" width="360" height="80" fill="#4A3A30"/>
+        <rect x="214" y="440" width="332" height="62" fill="#5E4B3F"/>
+        <ellipse cx="380" cy="360" rx="190" ry="90" fill="url(#glow)" class="warmglow"/>
+        <!-- Heizkörper OG -->
+        <rect x="236" y="250" width="56" height="26" rx="3" fill="#fff" stroke="#C9B6A3"/>
+        <path d="M244 250v26M252 250v26M260 250v26M268 250v26M276 250v26M284 250v26" stroke="#E2D3C2"/>
+        <!-- Bad OG -->
+        <rect x="470" y="232" width="56" height="44" rx="4" fill="#fff" stroke="#C9B6A3"/>
+        <path d="M484 214v18M478 214h12" stroke="#B87333" stroke-width="3" stroke-linecap="round"/>
+        <!-- Fußbodenheizung EG -->
+        <path class="flow floor" d="M222 412 h300 c10 0 10 -8 0 -8 h-300 c-10 0 -10 -8 0 -8 h300" fill="none"/>
+        <!-- Sofa EG -->
+        <rect x="300" y="360" width="110" height="34" rx="8" fill="#B8603A"/>
+        <rect x="300" y="346" width="110" height="18" rx="6" fill="#C9744B"/>
+        <!-- Keller Technik -->
+        <rect x="430" y="446" width="44" height="52" rx="4" fill="#fff"/>
+        <rect x="484" y="452" width="34" height="46" rx="12" fill="#E9E1D7"/>
+        <circle cx="452" cy="462" r="5" fill="#2F6F6A"/>
+        <!-- Leitungen -->
+        <path class="flow main" d="M118 400 V470 H430" fill="none"/>
+        <path class="flow up" d="M474 460 H560 M520 452 V300 H292 V276 M520 300 V276 H498" fill="none"/>
+        <!-- Außengerät -->
+        <g class="outdoor">
+          <rect x="60" y="360" width="116" height="70" rx="6" fill="#F7F4EF" stroke="#C9B6A3"/>
+          <circle cx="100" cy="395" r="24" fill="#E6DED3" stroke="#BBAE9E"/>
+          <g class="fan" data-fan style="transform-origin:100px 395px"><path d="M100 395 L100 374 A21 21 0 0 1 118 385 Z M100 395 L118 405 A21 21 0 0 1 100 416 Z M100 395 L82 405 A21 21 0 0 1 82 385 Z" fill="#BBAE9E"/></g>
+          <path d="M138 372h28M138 382h28M138 392h28M138 402h28M138 412h28" stroke="#D9CFC3" stroke-width="3"/>
+          <rect x="66" y="430" width="12" height="6" fill="#8A7A6C"/><rect x="158" y="430" width="12" height="6" fill="#8A7A6C"/>
+        </g>
+        <g class="airflow" data-air><path d="M20 380c14-6 22 6 34 0M14 400c14-6 22 6 36 0M20 420c14-6 22 6 34 0" fill="none" stroke="#9CC9D8" stroke-width="2.5" stroke-linecap="round"/></g>
+        <!-- Hotspots -->
+        <g class="hs" data-hs="0" transform="translate(118 352)"><circle r="16" class="hs-pulse"/><circle r="9" class="hs-dot"/></g>
+        <g class="hs" data-hs="1" transform="translate(452 438)"><circle r="16" class="hs-pulse"/><circle r="9" class="hs-dot"/></g>
+        <g class="hs" data-hs="2" transform="translate(372 404)"><circle r="16" class="hs-pulse"/><circle r="9" class="hs-dot"/></g>
+        <g class="hs" data-hs="3" transform="translate(264 240)"><circle r="16" class="hs-pulse"/><circle r="9" class="hs-dot"/></g>
+        <g class="hs" data-hs="4" transform="translate(498 222)"><circle r="16" class="hs-pulse"/><circle r="9" class="hs-dot"/></g>
+        <g class="hs" data-hs="5" transform="translate(380 116)"><circle r="16" class="hs-pulse"/><circle r="9" class="hs-dot"/></g>
+        <!-- Thermometer innen -->
+        <g transform="translate(560 200)"><rect x="-26" y="-20" width="64" height="34" rx="17" fill="#2B1D14"/><text x="6" y="3" fill="#fff" font-size="15" font-weight="700" text-anchor="middle" font-family="Manrope, sans-serif" data-tin>21 °C</text></g>
+      </svg>
+      <div class="house-legend"><span><i class="lg-flow"></i>Heizwasser fließt</span><span><i class="lg-hs"></i>antippen</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FÖRDERRECHNER ============ -->
+<section class="calc" id="foerderung">
+  <div class="wrap calc-grid">
+    <div class="calc-in">
+      <p class="kicker dark"><span class="line"></span>Förderrechner · 1 Minute</p>
+      <h2 class="reveal">Wie viel bekommen <em>Sie</em> geschenkt?</h2>
+
+      <fieldset class="seg">
+        <legend>Sie wohnen selbst im Haus?</legend>
+        <label><input type="radio" name="owner" value="1" checked><span>Ja</span></label>
+        <label><input type="radio" name="owner" value="0"><span>Nein, vermietet</span></label>
+      </fieldset>
+      <fieldset class="seg">
+        <legend>Heute geheizt mit</legend>
+        <label><input type="radio" name="fuel" value="oel" checked><span>Öl</span></label>
+        <label><input type="radio" name="fuel" value="gas"><span>Gas</span></label>
+        <label><input type="radio" name="fuel" value="nacht"><span>Nachtspeicher</span></label>
+        <label><input type="radio" name="fuel" value="kohle"><span>Kohle</span></label>
+      </fieldset>
+      <label class="range">
+        <span>Kosten für Wärmepumpe und Einbau <b data-cost-out>32.000 €</b></span>
+        <input type="range" min="15000" max="50000" step="500" value="32000" data-cost>
+      </label>
+      <div class="toggles">
+        <label class="tg"><input type="checkbox" data-income><span></span>Haushaltseinkommen unter 40.000 € im Jahr</label>
+        <label class="tg"><input type="checkbox" data-natural checked><span></span>Gerät mit natürlichem Kältemittel (z. B. Propan)</label>
+      </div>
+    </div>
+
+    <div class="calc-out">
+      <div class="result">
+        <small>Ihr Zuschuss, wenn Sie jetzt beauftragen</small>
+        <div class="big"><span data-grant-now>0</span> €</div>
+        <div class="bars" data-bars></div>
+        <div class="later">
+          <div><small>ab 1. Februar 2027</small><b><span data-grant-later>0</span> €</b></div>
+          <div class="loss"><small>Wer wartet, verliert</small><b>− <span data-loss>0</span> €</b></div>
+        </div>
+        <a href="#check" class="btn ember full">Mit diesem Ergebnis Termin anfragen →</a>
+        <p class="fine">Beispielrechnung, Stand November 2026, ohne Gewähr. Annahmen: Grundförderung 30 %, Klimageschwindigkeitsbonus 16 % (ab 1.2.2027: 12 %), Einkommensbonus 30 %, Effizienzbonus 5 %, höchstens 70 %. Förderfähige Kosten bis 28.000 € (ab 1.2.2027: 27.250 €). Verbindlich ist nur die aktuelle BEG-Richtlinie.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ VORHER / NACHHER ============ -->
+<section class="ba" id="vorher-nachher">
+  <div class="wrap">
+    <p class="kicker dark"><span class="line"></span>Vorher / Nachher</p>
+    <h2 class="reveal">Aus dem Öltank-Keller wird <em>Platz.</em></h2>
+    <div class="ba-box" data-ba style="--p:50%">
+      <img src="assets/img/keller-nachher.webp" alt="Nachher: heller Technikraum mit Wärmepumpe" loading="lazy">
+      <div class="ba-before"><img src="assets/img/keller-vorher.webp" alt="Vorher: alter Heizungskeller mit Öltank" loading="lazy"></div>
+      <span class="ba-tag l">1990</span><span class="ba-tag r">Heute</span>
+      <input type="range" min="0" max="100" value="50" aria-label="Vorher-Nachher-Regler" data-ba-range>
+      <div class="ba-handle" aria-hidden="true"><span>⟷</span></div>
+    </div>
+    <div class="ba-facts"><div><b>⅓</b><span>Platz im Keller gewonnen</span></div><div><b>0</b><span>Öllieferungen pro Jahr</span></div><div><b>2,5</b><span>Tage Einbau</span></div></div>
+  </div>
+</section>
+
+<!-- ============ VORAB-CHECK ============ -->
+<section class="check" id="check">
+  <div class="wrap check-grid">
+    <div>
+      <p class="kicker"><span class="line"></span>Vorab-Check per Handy</p>
+      <h2 class="reveal">3 Fotos statt <em>3 Wochen</em> warten.</h2>
+      <p class="sub">Fotografieren Sie Heizraum, Typenschild und einen Heizkörper. Heinz sieht sich alles an, bevor jemand losfährt. Oft wissen wir danach schon, was Ihr Haus braucht.</p>
+      <ul class="steps"><li><b>1</b>Fotos machen</li><li><b>2</b>Wir schauen drauf, meist am selben Tag</li><li><b>3</b>Sie bekommen einen Termin und eine erste Zahl</li></ul>
+    </div>
+    <div class="phone">
+      <div class="phone-in">
+        <div class="ph-head"><b>Vorab-Check</b><small>WARMHERZ</small></div>
+        <label class="slot"><input type="file" accept="image/*" capture="environment" data-slot><span class="slot-ph"><i>+</i>Heizraum</span></label>
+        <label class="slot"><input type="file" accept="image/*" capture="environment" data-slot><span class="slot-ph"><i>+</i>Typenschild</span></label>
+        <label class="slot"><input type="file" accept="image/*" capture="environment" data-slot><span class="slot-ph"><i>+</i>Heizkörper</span></label>
+        <button class="btn ember full" data-check-send>Abschicken</button>
+        <div class="ph-done" data-check-done>
+          <div class="akte"><small>Werkakte · neue Anfrage</small><b>Wärmepumpe Bestandshaus</b><span>3 Fotos · Förderung geprüft</span><em>Heinz meldet sich heute</em></div>
+          <p>Demo: Die Fotos bleiben auf Ihrem Gerät und werden nicht gesendet.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ DEIN PLATZ (KARRIERE) ============ -->
+<section class="platz" id="platz">
+  <div class="platz-hero">
+    <div class="platz-media"><img src="assets/img/team.webp" alt="" aria-hidden="true" class="platz-bg" loading="lazy">
+      <span class="gap gap2" style="--x:63%;--y:37%" aria-hidden="true"><svg viewBox="0 0 100 260"><path d="M50 8a22 22 0 1 1 0 44 22 22 0 0 1 0-44zM18 74c8-10 20-14 32-14s24 4 32 14c8 10 10 24 10 40v70H8v-70c0-16 2-30 10-40zM20 184h26v70H20zM54 184h26v70H54z"/></svg><span class="gap-label">Du?</span></span></div>
+    <div class="platz-shade"></div>
+    <div class="platz-copy">
+      <p class="kicker"><span class="line"></span>Dein Platz im Team</p>
+      <h2 class="reveal">Hier fehlt noch <em>jemand.</em></h2>
+      <p class="sub">Monteurin, Azubi, Quereinsteiger: Wir suchen Leute, die gern mit den Händen arbeiten und abends sehen wollen, was sie geschafft haben.</p>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="why">
+      <article data-tilt><b>16:30</b><h3>Pünktlich Feierabend</h3><p>Bericht per App auf der Baustelle. Abends kein Papierkram.</p></article>
+      <article data-tilt><b>1.000 €</b><h3>Prämie fürs Werben</h3><p>Bringst du jemanden mit, der bleibt, gibt's 1.000 € extra.</p></article>
+      <article data-tilt><b>100 %</b><h3>Schulung bezahlt</h3><p>Wärmepumpen-Zertifikat, Kältescheine, Meisterkurs: zahlen wir.</p></article>
+      <article data-tilt><b>1</b><h3>Eigener Transporter</h3><p>Für dich allein, nicht ständig wechseln, nicht suchen.</p></article>
+    </div>
+
+    <div class="jobs">
+      <details class="job" open>
+        <summary><span><b>Anlagenmechaniker/in SHK</b><small>Wärmepumpen · Vollzeit</small></span><em>3.400 – 4.100 €</em></summary>
+        <p>Du baust Wärmepumpen in Bestandshäuser ein, meist zu zweit, 2–3 Tage pro Haus. 38 Stunden, Freitag ab 13 Uhr frei.</p>
+      </details>
+      <details class="job">
+        <summary><span><b>Azubi Anlagenmechaniker/in</b><small>Start August 2027 · 3,5 Jahre</small></span><em>1.050 € im 1. Jahr</em></summary>
+        <p>Ab Tag 1 mit auf der Baustelle. Eigenes Tablet, feste Ansprechperson, Übernahme bei gutem Abschluss garantiert.</p>
+      </details>
+      <details class="job">
+        <summary><span><b>Quereinsteiger/in</b><small>aus Elektro, KFZ, Metall</small></span><em>ab 3.100 €</em></summary>
+        <p>Sechs Monate Einarbeitung zur Wärmepumpen-Fachkraft, voll bezahlt. Handwerklich geschickt reicht.</p>
+      </details>
+      <details class="job">
+        <summary><span><b>Kundendienst-Techniker/in</b><small>Wartung & Störungen</small></span><em>3.600 – 4.400 €</em></summary>
+        <p>Du bist der Held im Januar. Bereitschaft wird extra bezahlt, maximal eine Woche im Monat.</p>
+      </details>
+    </div>
+
+    <!-- 60-Sekunden-Bewerbung -->
+    <div class="apply">
+      <div class="apply-copy">
+        <h3>Bewerben in <em>60 Sekunden.</em></h3>
+        <p>Kein Lebenslauf, kein Anschreiben. Drei Fragen, und Heinz ruft dich zurück. Am selben Tag.</p>
+        <img src="assets/img/heinz.webp" alt="Meister Heinz Brinkmann in der Werkstatt" class="apply-heinz" loading="lazy">
+      </div>
+      <div class="chat" data-chat aria-live="polite">
+        <div class="chat-log" data-chat-log></div>
+        <div class="chat-quick" data-chat-quick></div>
+        <form class="chat-input" data-chat-form><input type="text" placeholder="Antwort tippen …" aria-label="Antwort" data-chat-text><button aria-label="Senden">↑</button></form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ NACHFOLGE ============ -->
+<section class="heinz" id="chef">
+  <div class="wrap heinz-grid">
+    <figure class="heinz-img"><img src="assets/img/heinz.webp" alt="Heinz Brinkmann, Inhaber" loading="lazy"></figure>
+    <div>
+      <p class="kicker dark"><span class="line"></span>Ein ehrliches Wort vom Chef</p>
+      <blockquote class="reveal">„Ich bin 61. Ich suche jemanden, der das hier mal <em>weiterführt.</em>“</blockquote>
+      <p class="sub">Für unsere Kunden heißt das: WARMHERZ bleibt. Für ehrgeizige Gesellinnen und Gesellen heißt das: Hier kannst du Meister werden, und mehr. Den Meisterkurs bezahlen wir.</p>
+      <div class="sig">Heinz Brinkmann <small>Inhaber, Meister im Installateur- und Heizungsbauerhandwerk</small></div>
+      <a href="#platz" class="btn teal">Sprich mit Heinz →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="foot">
+  <div class="wrap foot-grid">
+    <div>
+      <a href="#top" class="logo light"><svg viewBox="0 0 40 40" aria-hidden="true"><path class="logo-heart" d="M20 35S4 25.5 4 14.5A8 8 0 0 1 20 11a8 8 0 0 1 16 3.5C36 25.5 20 35 20 35z"/><path class="logo-flame" d="M20 29c-3.6 0-6-2.4-6-5.6 0-3.4 3-5 3.6-8.4 2.2 1.6 2.8 3.6 2.6 5.4 1-.6 1.8-1.8 2-3.2 2 1.6 3.8 3.8 3.8 6.2 0 3.2-2.4 5.6-6 5.6z"/></svg><span>WARMHERZ</span></a>
+      <p>Heizung · Wärmepumpe · Bad<br>Am Kupferhammer 12 · 33602 Bielefeld (fiktiv)</p>
+    </div>
+    <div><b>Telefon</b><p>0521 000 00 00 (Demo)<br>Mo–Fr 7–17 Uhr, Sa 8–12 Uhr</p></div>
+    <div><b>Notdienst Winter</b><p>rund um die Uhr<br>0521 000 00 99 (Demo)</p></div>
+  </div>
+  <p class="demo-note">Dies ist eine Demo-Webseite von PROJEKT EX. WARMHERZ, alle Personen, Bewertungen, Preise und Gehälter sind erfunden. Förderangaben sind Beispielwerte ohne Gewähr. Eingaben auf dieser Seite werden nicht übertragen.</p>
+</footer>
+
+<script src="assets/js/gsap.min.js"></script>
+<script src="assets/js/ScrollTrigger.min.js"></script>
+<script src="assets/js/app.js"></script>
+</body>
+</html>

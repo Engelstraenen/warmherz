@@ -33,12 +33,20 @@ Gilt zusätzlich zur globalen Masterfile (~/.claude/CLAUDE.md).
 4. Veröffentlichen (GitHub Pages) nur nach OK
 
 ## 7. Befehle
+- Seite lokal: `cd site && python3 -m http.server 4360 --bind 127.0.0.1` → http://localhost:4360
+- Vorschau-Modus für First Frames: `?shot=<section-id>` (zeigt nur diesen Abschnitt, Animationen eingefroren), dazu `&scene=<0-6>`, `&hover=<selector>`, `&hide=<selector>`, `&chat`. Rendern: `tools/shot.sh "?shot=foerderung" 1440 900 out.png`.
+- First-Frame-Boards: `konzepte/firstframe.html#<0-12>` mit headless Chrome 2400×1260.
+- Headless Chrome: Mindestbreite ~500 px → Handy-Prüfung im Browser-Panel (mobile preset), nicht headless.
 - Konzept-Boards neu rendern: headless Chrome auf `konzepte/board.html#a|b|c` (2520×1560), dann `sips` → JPEG.
 
 ## 8. Offene Fragen
-- Welches Konzept (oder Kombination)?
+- Feedback zu den 13 First Frames.
+- Keller-Nachher-Bild (sjinn, Ref = keller_vorher) holen, sobald Chrome-Erweiterung wieder verbunden ist; bis dahin blendet sich Vorher/Nachher selbst aus.
+- Motion-Video vom Startbereich (GIF/MP4) noch offen.
 
 ## 9. Entschieden
+- 18.11.2026: Konzept B + C kombiniert (Teamfoto mit Lücke + Ein Tag mit Lukas + Countdown). Dazu Leistungen, Wärmepumpe interaktiv, Förderrechner, Vorab-Check, Karriere mit Chat-Bewerbung, Chef/Nachfolge.
+- 18.11.2026: Statische Seite in `site/` (HTML/CSS/JS, GSAP 3.12.5 + Schriften Fraunces/Manrope lokal, kein Google-Abruf). Fotos 4K von sjinn → WebP 2000–2400 px.
 - 17.11.2026: Neue fiktive Marke WARMHERZ statt WÄRMEWERK. Werkakte läuft unter Engelstränen UG (später PROJEKT EX UG).
 - 17.11.2026: Größtes Branchenproblem = Nachwuchs/Mitarbeiter → Seite und App drehen sich um Recruiting + Förderrechner.
 
