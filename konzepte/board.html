@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<title>WARMHERZ Konzepte</title>
+<style>
+:root{--cream:#F6EFE6;--paper:#FFFBF5;--ink:#2B1D14;--muted:#7A6455;--ember:#D9622B;--copper:#B87333;--teal:#2F6F6A;--line:#E3D5C5}
+*{box-sizing:border-box;margin:0;padding:0}
+body{width:2520px;height:1560px;background:var(--cream);color:var(--ink);font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;overflow:hidden}
+.board{padding:52px 60px}
+header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:34px;border-bottom:3px solid var(--ink);padding-bottom:22px}
+.brand{font-family:Georgia,serif;font-size:26px;letter-spacing:.18em;color:var(--ember)}
+.brand b{color:var(--ink)}
+h1{font-family:Georgia,serif;font-size:66px;font-weight:400;line-height:1.05;margin-top:6px}
+h1 em{color:var(--ember);font-style:italic}
+.sub{font-size:24px;line-height:1.4;color:var(--muted);max-width:1180px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:36px 44px}
+.panel{display:flex;flex-direction:column;position:relative}
+.screen{position:relative;height:430px;background:var(--paper);border:2px solid var(--ink);border-radius:14px;overflow:hidden;box-shadow:8px 8px 0 rgba(43,29,20,.12)}
+.screen .bar{height:26px;background:#EADFD2;border-bottom:2px solid var(--ink);display:flex;align-items:center;gap:7px;padding-left:12px}
+.screen .bar i{width:10px;height:10px;border-radius:50%;background:#C9B6A3;display:block}
+.screen .in{position:absolute;inset:26px 0 0 0}
+.num{position:absolute;top:-18px;left:-18px;z-index:5;width:52px;height:52px;border-radius:50%;background:var(--ember);color:#fff;font:700 26px/52px Georgia,serif;text-align:center;border:3px solid var(--cream)}
+.clock{position:absolute;top:40px;right:14px;z-index:4;background:var(--ink);color:#fff;font:700 26px/1 "Courier New",monospace;padding:8px 12px;border-radius:8px}
+.cap{padding:18px 4px 0}
+.cap h3{font-size:27px;line-height:1.15;margin-bottom:6px}
+.cap p{font-size:20px;line-height:1.38;color:#4E3B2F}
+.tags{display:flex;gap:10px;margin-top:10px;flex-wrap:wrap}
+.tag{font-size:17px;padding:6px 11px;border-radius:999px;border:2px solid}
+.tag.k{border-color:var(--ember);color:var(--ember)}
+.tag.b{border-color:var(--teal);color:var(--teal)}
+/* Mock-Bausteine */
+.ph{position:absolute;display:flex;align-items:flex-end;padding:12px 14px;color:#fff;font:italic 17px/1.3 Georgia,serif;text-shadow:0 1px 3px rgba(0,0,0,.5);overflow:hidden}
+.ph::before{content:"FOTO";position:absolute;top:10px;left:12px;font:700 12px/1 Helvetica,sans-serif;letter-spacing:.15em;font-style:normal;background:rgba(0,0,0,.35);padding:4px 7px;border-radius:4px}
+.w1{background:linear-gradient(135deg,#E9A15B,#B4542A 60%,#6B2E1A)}
+.w2{background:linear-gradient(135deg,#8C7B6B,#4F4038 60%,#2C221C)}
+.w3{background:linear-gradient(135deg,#F2C48D,#D9622B 70%)}
+.w4{background:linear-gradient(135deg,#6E8F8A,#2F6F6A 60%,#1D3F3C)}
+.mh{position:absolute;font-family:Georgia,serif;color:#fff;text-shadow:0 2px 8px rgba(0,0,0,.45);line-height:1.05}
+.dk{color:var(--ink);text-shadow:none}
+.mb{position:absolute;font:700 16px/1 Helvetica,sans-serif;padding:11px 15px;border-radius:999px;background:var(--ember);color:#fff;white-space:nowrap}
+.mb.t{background:var(--teal)}
+.mb.o{background:#fff;color:var(--ink)}
+.note{position:absolute;font:22px/1.15 "Marker Felt","Bradley Hand",cursive;color:var(--ember);z-index:6}
+.note.t{color:var(--teal)}
+.note.w{color:#FFE2C4}
+.dash{position:absolute;border:3px dashed var(--ember);border-radius:12px}
+.card{position:absolute;background:#fff;border:2px solid var(--line);border-radius:12px;padding:12px 14px;font-size:15px;line-height:1.3;color:var(--ink)}
+.card b{display:block;font-size:17px;margin-bottom:3px}
+.phone{position:absolute;width:200px;height:370px;border:3px solid var(--ink);border-radius:28px;background:#fff;overflow:hidden}
+.phone .pi{position:absolute;inset:14px 12px}
+.slider{height:8px;background:var(--line);border-radius:4px;position:relative;margin:8px 0 16px}
+.slider::after{content:"";position:absolute;left:var(--v);top:-7px;width:22px;height:22px;border-radius:50%;background:var(--ember);border:3px solid #fff;box-shadow:0 1px 3px rgba(0,0,0,.3)}
+.lbl{font-size:14px;color:var(--muted)}
+.big{font:700 54px/1 Georgia,serif;color:var(--ember)}
+.strip{position:absolute;left:0;right:0;background:var(--ink);color:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 24px}
+footer{position:absolute;left:60px;right:60px;bottom:30px;display:flex;justify-content:space-between;font-size:18px;color:var(--muted)}
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script>
+const P = (cls, x, y, w, h, txt) => `<div class="ph ${cls}" style="left:${x}px;top:${y}px;width:${w}px;height:${h}px">${txt}</div>`;
+const H = (x, y, size, txt, extra='') => `<div class="mh ${extra}" style="left:${x}px;top:${y}px;font-size:${size}px">${txt}</div>`;
+const BTN = (x, y, txt, c='') => `<div class="mb ${c}" style="left:${x}px;top:${y}px">${txt}</div>`;
+const NOTE = (x, y, txt, c='') => `<div class="note ${c}" style="left:${x}px;top:${y}px">${txt}</div>`;
+const CARD = (x, y, w, b, t) => `<div class="card" style="left:${x}px;top:${y}px;width:${w}px"><b>${b}</b>${t}</div>`;
+
+const boards = {
+a: {
+  title: 'Konzept A · <em>Zwei Türen</em>',
+  sub: 'Die Seite spricht zwei Menschen an: den Hausbesitzer, der eine neue Heizung braucht, und den Monteur oder Azubi, der einen Job sucht. Gleich oben entscheidet jeder mit einem Klick, wer er ist, und landet in seiner eigenen Welt.',
+  panels: [
+    { t:'Startseite: zwei Türen', p:'Links der Kunde, rechts der Bewerber. Zwei große Fotos, zwei Sätze, zwei Buttons. Niemand muss suchen.', tags:['k:Kunde: „Hier bin ich richtig“','b:Bewerber: „Die suchen mich“'],
+      s: P('w1',0,0,372,404,'Familie im warmen Wohnzimmer, Kind barfuß auf dem Boden') + P('w4',372,0,392,404,'Team lachend in der Werkstatt, Kaffeebecher') +
+         H(26,150,34,'Mein Haus soll<br>warm werden.') + BTN(26,250,'Förderung berechnen →') +
+         H(400,150,34,'Ich will hier<br>arbeiten.') + BTN(400,250,'Jobs ansehen →','t') },
+    { t:'Tür 1: Förderrechner mit Countdown', p:'3 Regler (Haus, Baujahr, Heizung) und sofort der Zuschuss in Euro. Darunter der Countdown: ab 1. Februar gibt es weniger.', tags:['k:Kunde: Druck, jetzt zu handeln'],
+      s: `<div style="position:absolute;left:30px;top:24px;width:330px">
+          <div class="lbl">Wohnfläche · 140 m²</div><div class="slider" style="--v:40%"></div>
+          <div class="lbl">Baujahr · 1978</div><div class="slider" style="--v:30%"></div>
+          <div class="lbl">Heute geheizt mit · Öl</div><div class="slider" style="--v:10%"></div></div>
+          <div style="position:absolute;left:400px;top:30px"><div class="lbl">Ihr Zuschuss heute</div><div class="big">19.600 €</div><div class="lbl" style="margin-top:6px">ab 1.2.2027 nur noch 18.480 €</div></div>
+          <div class="strip" style="top:300px;height:104px"><span style="font:700 30px Georgia,serif">Noch 76 Tage</span><span style="font-size:18px">dann 1.120 € weniger</span><span class="mb" style="position:static">Termin sichern →</span></div>
+          ` + NOTE(470,190,'Zahl springt live mit','') },
+    { t:'Tür 1: 3 Fotos statt Besichtigung', p:'Der Kunde fotografiert Heizraum, Typenschild und Heizkörper mit dem Handy. Der Meister sieht alles, bevor er losfährt.', tags:['k:Kunde: geht in 2 Minuten','b:Betrieb: spart Fahrten'],
+      s: `<div class="phone" style="left:60px;top:18px"><div class="pi"><div style="font:700 18px Georgia,serif;margin-bottom:10px">Vorab-Check</div>
+          ${['Heizraum','Typenschild','Heizkörper'].map((x,i)=>`<div style="height:70px;border:2px dashed var(--copper);border-radius:10px;margin-bottom:10px;display:flex;align-items:center;padding-left:12px;font-size:15px;color:var(--copper)">+ Foto: ${x}</div>`).join('')}
+          <div class="mb" style="position:static;text-align:center;margin-top:6px">Abschicken</div></div></div>
+          ` + NOTE(300,60,'kein Formular-Monster,<br>nur 3 Fotos') + NOTE(300,200,'landet direkt als Akte<br>in der Werkakte-App','t') },
+    { t:'Tür 2: Team und Jobs', p:'Echte Gesichter, echte Namen. Jede Stelle mit Gehalt, Arbeitszeit und was man lernt. Auch für Quereinsteiger und Frauen.', tags:['b:Bewerber: Gehalt steht offen da'],
+      s: P('w4',0,0,764,150,'Gruppenfoto Team vor der Werkstatt') +
+         CARD(20,170,230,'Monteur/in Wärmepumpe','3.400–4.100 € · 38 Std.<br>Feierabend 16:30') +
+         CARD(267,170,230,'Azubi Anlagen&shy;mechaniker/in','1.050 € im 1. Jahr<br>Übernahme garantiert') +
+         CARD(514,170,230,'Quereinsteiger/in','Umschulung Wärmepumpe<br>bezahlt, 6 Monate') +
+         BTN(20,320,'In 60 Sekunden bewerben →','t') + NOTE(330,322,'Prämie 1.000 € fürs Werben','t') },
+    { t:'Tür 2: Bewerben in 60 Sekunden', p:'Kein Lebenslauf, kein Anschreiben. Drei Fragen wie im Chat, fertig. Der Meister ruft am selben Tag zurück.', tags:['b:Bewerber: keine Hürde'],
+      s: `<div class="phone" style="left:60px;top:18px"><div class="pi" style="font-size:15px">
+          <div style="background:#EFE6DA;border-radius:12px;padding:9px;margin-bottom:8px;width:85%">Hi! Wie heißt du?</div>
+          <div style="background:var(--teal);color:#fff;border-radius:12px;padding:9px;margin:0 0 8px auto;width:60%">Jonas</div>
+          <div style="background:#EFE6DA;border-radius:12px;padding:9px;margin-bottom:8px;width:85%">Was machst du gerade?</div>
+          <div style="background:var(--teal);color:#fff;border-radius:12px;padding:9px;margin:0 0 8px auto;width:75%">Elektriker, will wechseln</div>
+          <div style="background:#EFE6DA;border-radius:12px;padding:9px;margin-bottom:8px;width:85%">Wann dürfen wir anrufen?</div>
+          <div style="background:var(--teal);color:#fff;border-radius:12px;padding:9px;margin:0 0 0 auto;width:55%">ab 17 Uhr</div></div></div>
+          ` + NOTE(300,80,'fühlt sich an wie WhatsApp','t') + NOTE(300,200,'geht als Bewerber-Akte<br>in die App','t') },
+    { t:'Beide Türen enden bei einem Menschen', p:'Egal ob Kunde oder Bewerber: Am Ende steht Meister Heinz mit Foto und Telefon. Kein Callcenter, kein Ticket.', tags:['k:Kunde: Vertrauen','b:Bewerber: der Chef ist nahbar'],
+      s: P('w2',0,0,330,404,'Meister Heinz, 61, mit Handy in der Werkstatt') +
+         H(360,60,34,'„Ich rufe Sie<br>heute noch zurück.“','dk') +
+         `<div style="position:absolute;left:360px;top:170px;font-size:18px;color:var(--muted)">Heinz Brinkmann · Inhaber</div>` +
+         BTN(360,220,'0521 · 123 45 67','o') + BTN(360,280,'Rückruf anfordern →') }
+  ]
+},
+b: {
+  title: 'Konzept B · <em>Ein Tag mit Lukas</em>',
+  sub: 'Die ganze Seite ist ein Arbeitstag. Beim Scrollen läuft die Uhr von 7 bis 19 Uhr. Der Kunde sieht, wer zu ihm kommt und wie sorgfältig gearbeitet wird. Der Bewerber sieht, wie sich ein Tag bei uns anfühlt. Jede Szene hat zwei kleine Hinweise: einen für den Kunden, einen für den Bewerber.',
+  panels: [
+    { c:'06:58', t:'Kaffee in der Werkstatt', p:'Das Team steht zusammen, es wird gelacht. Großer Satz über dem Foto.', tags:['k:Kunde: echte Leute','b:Bewerber: gutes Team'],
+      s: P('w2',0,0,764,404,'Werkstatt, 6 Leute mit Kaffeebechern, Morgenlicht durchs Tor') + H(30,250,40,'Bei uns fängt der Tag<br>mit Kaffee an.') + NOTE(30,60,'Scroll ↓ = Uhr läuft','w') },
+    { c:'07:40', t:'Im Transporter zur Baustelle', p:'Lukas fährt, Azubi Lea sitzt daneben und lernt unterwegs. Name, Alter, Lehrjahr stehen dabei.', tags:['k:Kunde: weiß, wer klingelt','b:Bewerber: Azubis fahren mit'],
+      s: P('w1',0,0,764,404,'Lukas (31) am Steuer, Lea (19, 2. Lehrjahr) daneben, Wintermorgen') +
+         CARD(470,40,260,'Lukas, 31','Monteur seit 2019<br>„Am liebsten Altbauten.“') + CARD(470,150,260,'Lea, 19','Azubi, 2. Lehrjahr<br>„Ich wollte nie ins Büro.“') },
+    { c:'09:15', t:'Auf der Baustelle: sauber', p:'Schuhüberzieher, Folie auf dem Boden, Tablet mit der Werkakte. Ruhige Großaufnahme der Hände.', tags:['k:Kunde: hier wird sauber gearbeitet','b:Bewerber: modernes Werkzeug'],
+      s: P('w3',0,0,764,404,'Nahaufnahme: Hände mit Schuhüberziehern, Folie, Tablet mit Werkakte') + H(30,270,36,'Wir gehen, wie wir<br>gekommen sind: sauber.') },
+    { c:'14:30', t:'Die Wärmepumpe läuft', p:'Lukas zeigt der Familie am Display, wie alles funktioniert. Hier sitzt der Förderrechner direkt im Scroll.', tags:['k:Kunde: so einfach geht das','b:Bewerber: Arbeit mit Sinn'],
+      s: P('w1',0,0,450,404,'Lukas erklärt Familie das Display der Wärmepumpe') +
+         `<div style="position:absolute;left:470px;top:40px;width:270px"><div class="lbl">Ihr Zuschuss heute</div><div class="big" style="font-size:44px">19.600 €</div><div class="slider" style="--v:55%;margin-top:18px"></div><div class="slider" style="--v:30%"></div></div>` +
+         BTN(470,250,'Meinen Zuschuss →') + NOTE(470,310,'Rechner mitten in der Story') },
+    { c:'16:30', t:'Pünktlich Feierabend', p:'Lukas tippt den Bericht in 2 Minuten in die App und fährt heim. Kein Papierkram am Abend.', tags:['b:Bewerber: Freizeit ist Freizeit'],
+      s: P('w4',0,0,764,404,'Lukas lädt Werkzeug ein, Abendsonne, Handy mit Werkakte in der Hand') + H(30,250,40,'Feierabend um halb fünf.<br>Der Bericht ist schon fertig.') + NOTE(30,60,'Werkakte-App als Job-Vorteil','w') },
+    { c:'19:00', t:'Familie im Warmen und die zwei Türen', p:'Kind barfuß auf dem warmen Boden. Danach am Ende der Seite: zwei Buttons für beide Seiten.', tags:['k:Kunde: das will ich auch','b:Bewerber: das will ich machen'],
+      s: P('w1',0,0,764,300,'Abend, Familie auf dem Sofa, Kind barfuß auf dem Boden') +
+         `<div style="position:absolute;left:0;right:0;top:300px;bottom:0;background:var(--paper)"></div>` +
+         BTN(40,330,'Das will ich auch: Förderung berechnen →') + BTN(430,330,'Das will ich machen: Bewerben →','t') }
+  ]
+},
+c: {
+  title: 'Konzept C · <em>Hier fehlt noch jemand</em>',
+  sub: 'Gleich oben das ganze Team als großes Gruppenfoto. Ein Platz ist leer und gestrichelt: „Dein Platz?“. Das ist die Botschaft an Bewerber. Für Kunden steht der Förder-Countdown im Mittelpunkt. Dazu ehrlich: Der Chef sucht auch einen Nachfolger.',
+  panels: [
+    { t:'Startseite: Teamfoto mit leerem Platz', p:'Alle stehen vor der Werkstatt, einer fehlt. Wer auf den leeren Platz tippt, landet bei den Jobs.', tags:['b:Bewerber: „Da passe ich rein“','k:Kunde: ein echtes Team'],
+      s: P('w2',0,0,764,404,'Team (7 Leute) vor Werkstatt und Transporter, eine Lücke in der Reihe') +
+         `<div class="dash" style="left:500px;top:110px;width:110px;height:220px"></div>` + NOTE(486,340,'Dein Platz?') +
+         H(30,40,40,'Wir machen Bielefeld warm.<br>Seit 1987.') },
+    { t:'Gesichter antippen', p:'Jede Person hat eine kleine Karte: Name, Job, ein Satz. Der Kunde weiß vorher, wer bei ihm klingelt.', tags:['k:Kunde: Vertrauen vor dem Termin'],
+      s: P('w4',0,0,764,404,'Teamfoto, ein Gesicht ist hervorgehoben') +
+         `<div style="position:absolute;left:250px;top:90px;width:90px;height:90px;border:4px solid #fff;border-radius:50%"></div>` +
+         CARD(360,80,330,'Lukas, 31 · Monteur','Seit 2019 dabei. „Am liebsten Altbauten. Da sieht man den Unterschied.“') + NOTE(360,230,'kommt zu Ihnen nach Hause','') },
+    { t:'Förder-Countdown als großes Band', p:'Ein Band quer über die Seite, das mitläuft. Klick öffnet den Rechner.', tags:['k:Kunde: jetzt handeln'],
+      s: `<div class="strip" style="top:40px;height:140px;background:var(--ember)"><div><div style="font:700 56px Georgia,serif">76 Tage</div><div style="font-size:18px">bis die Förderung sinkt</div></div><div style="text-align:right"><div style="font:700 32px Georgia,serif">− 1.120 €</div><div style="font-size:16px">für ein Haus mit 28.000 € Kosten</div></div></div>` +
+         BTN(40,220,'Zuschuss in 1 Minute berechnen →') + NOTE(40,290,'Band bleibt beim Scrollen sichtbar') },
+    { t:'Vorher / Nachher im Keller', p:'Mit dem Finger ziehen: links der alte Öltank, rechts der saubere Technikraum. Darunter ein Satz der Familie.', tags:['k:Kunde: so sieht das bei mir aus'],
+      s: P('w2',0,0,382,404,'VORHER: Öltank-Keller 1990') + P('w3',382,0,382,404,'NACHHER: heller Technikraum') +
+         `<div style="position:absolute;left:378px;top:0;bottom:0;width:8px;background:#fff"></div><div style="position:absolute;left:358px;top:180px;width:48px;height:48px;border-radius:50%;background:#fff;border:3px solid var(--ink);text-align:center;font:700 22px/42px Helvetica">⇆</div>` },
+    { t:'Warum bei uns arbeiten?', p:'Vier ehrliche Gründe als große Kacheln, keine Floskeln.', tags:['b:Bewerber: klare Vorteile'],
+      s: CARD(20,20,350,'Feierabend 16:30','Bericht per App, kein Papierkram am Abend') + CARD(394,20,350,'Eigener Transporter','auch privat am Wochenende') +
+         CARD(20,150,350,'Wärmepumpen-Schulung','bezahlt, mit Zertifikat') + CARD(394,150,350,'1.000 € Prämie','wenn du jemanden mitbringst') +
+         BTN(20,300,'In 60 Sekunden bewerben →','t') },
+    { t:'Der Chef sucht einen Nachfolger', p:'Ehrliche Botschaft vom Inhaber. Berührt Kunden (der Betrieb bleibt) und zieht ehrgeizige Gesellen an.', tags:['b:Geselle: hier kann ich Meister werden','k:Kunde: der Betrieb bleibt'],
+      s: P('w2',0,0,330,404,'Meister Heinz, 61, an der Werkbank') + H(360,50,30,'„Ich suche jemanden,<br>der das hier mal<br>weiterführt.“','dk') +
+         `<div style="position:absolute;left:360px;top:200px;font-size:17px;color:var(--muted)">Meisterkurs bezahlen wir.</div>` + BTN(360,250,'Sprich mit Heinz →','t') }
+  ]
+}
+};
+
+const k = (location.hash || '#a').slice(1);
+const b = boards[k];
+document.getElementById('root').innerHTML = `<div class="board">
+<header><div><div class="brand"><b>WARMHERZ</b> · Heizung &amp; Wärmepumpe · Webseiten-Konzept</div><h1>${b.title}</h1></div><div class="sub">${b.sub}</div></header>
+<div class="grid">${b.panels.map((p,i)=>`<div class="panel"><div class="num">${i+1}</div><div class="screen">${p.c?`<div class="clock">${p.c}</div>`:''}<div class="bar"><i></i><i></i><i></i></div><div class="in">${p.s}</div></div>
+<div class="cap"><h3>${p.t}</h3><p>${p.p}</p><div class="tags">${p.tags.map(t=>`<span class="tag ${t[0]}">${t.slice(2)}</span>`).join('')}</div></div></div>`).join('')}</div>
+<footer><span>Fiktive Demo-Marke · Fotos werden noch echt erzeugt (fotorealistisch) · Förderzahlen vor Livegang gegen BEG-Richtlinie prüfen</span><span><span style="color:var(--ember)">● Hinweis für Kunden</span> &nbsp; <span style="color:var(--teal)">● Hinweis für Bewerber</span></span></footer></div>`;
+</script>
+</body>
+</html>
