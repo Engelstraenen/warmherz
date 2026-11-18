@@ -5,6 +5,15 @@
   const Q = new URLSearchParams(location.search);
   const SHOT = Q.has('shot');
   if (SHOT) document.documentElement.classList.add('shotmode');
+  /* Schrift-Vorschau: ?font=inter|archivo|barlow */
+  const FONTS = {
+    inter: ['"Inter Tight"', '-.045em', 800, 'none', 1], archivo: ['"Archivo"', '-.025em', 800, 'none', 1], barlow: ['"Barlow Semi Condensed"', '-.005em', 800, 'none', 1.1],
+    barlowc: ['"Barlow Condensed"', '0em', 800, 'uppercase', .98], anton: ['"Anton"', '.005em', 400, 'uppercase', 1.05], plex: ['"IBM Plex Sans"', '-.035em', 700, 'none', .95]
+  };
+  if (FONTS[Q.get('font')]) {
+    const [f, ls, w, tt, sc] = FONTS[Q.get('font')], st = document.documentElement.style;
+    st.setProperty('--head', f + ',Arial,sans-serif'); st.setProperty('--hls', ls); st.setProperty('--hw', w); st.setProperty('--htt', tt); st.setProperty('--hscale', sc);
+  }
   const reduce = SHOT || matchMedia('(prefers-reduced-motion: reduce)').matches;
   const hasGsap = typeof gsap !== 'undefined';
   const eur = n => Math.round(n).toLocaleString('de-DE');

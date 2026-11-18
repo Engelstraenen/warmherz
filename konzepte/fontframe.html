@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><title>WARMHERZ Schrift-Frames</title>
+<link rel="stylesheet" href="../site/assets/fonts/fonts2.css">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{width:2400px;height:1260px;background:#0E0E0E;color:#fff;font-family:"Inter Tight",Arial,sans-serif;overflow:hidden}
+.wrap{display:grid;grid-template-columns:1776px 1fr;gap:44px;padding:40px 48px}
+.shot{position:relative;width:1776px;height:1110px;border-radius:18px;overflow:hidden;border:2px solid #2A2A2A}
+.shot img{width:100%;height:100%;object-fit:cover;object-position:top}
+.m{position:absolute;width:56px;height:56px;margin:-28px;border-radius:50%;background:#FF5B1F;color:#fff;font:800 26px/50px "Inter Tight";text-align:center;border:3px solid #fff;box-shadow:0 0 0 6px rgba(255,91,31,.35),0 8px 20px rgba(0,0,0,.5)}
+.side{display:flex;flex-direction:column}
+.brand{font:800 14px "Inter Tight";letter-spacing:.2em;color:#FF5B1F;text-transform:uppercase}
+.no{font:800 20px "Inter Tight";color:#8A8A8A;margin-top:18px}
+.name{font-size:64px;line-height:.95;margin-top:6px}
+.char{font-size:19px;color:#C9C9C9;margin-top:12px;line-height:1.4}
+.spec{margin-top:22px;padding:20px;border-radius:14px;background:#1A1A1A;border:1px solid #2A2A2A}
+.spec .big{font-size:44px;line-height:.95}
+.spec .big span{color:#FF5B1F}
+.spec .abc{font-size:26px;margin-top:12px;color:#D6D6D6;line-height:1.2}
+.h{margin-top:22px;font:800 13px "Inter Tight";letter-spacing:.16em;text-transform:uppercase;color:#FF5B1F}
+ul{list-style:none;margin-top:10px;display:flex;flex-direction:column;gap:9px}
+li{font-size:17px;line-height:1.38;color:#E6E6E6;display:grid;grid-template-columns:34px 1fr;gap:10px}
+li b{width:30px;height:30px;border-radius:50%;background:#FF5B1F;font:800 15px/30px "Inter Tight";text-align:center}
+.why li::before{content:"✓";color:#FF5B1F;font-weight:800}
+.why li{grid-template-columns:20px 1fr}
+.foot{position:absolute;left:48px;bottom:20px;font-size:14px;color:#6B6B6B}
+</style></head><body><div id="r"></div>
+<script>
+const F={
+ barlowc:{n:1,name:'Barlow Condensed',fam:"'Barlow Condensed'",w:800,tt:'uppercase',ls:'0',
+  char:'Schmal, technisch, in Großbuchstaben. Erinnert an DIN-Beschriftungen, Typenschilder und Aufdrucke auf Arbeitskleidung.',
+  why:['Sieht aus wie die Beschriftung an Heizgeräten und Werkzeug','Viel Text passt in eine Zeile, auch auf dem Handy','Wirkt ernsthaft, sachlich, nach Meisterbetrieb']},
+ anton:{n:2,name:'Anton',fam:"'Anton'",w:400,tt:'uppercase',ls:'.005em',
+  char:'Fett, schmal, Plakat-Wirkung. Wie ein Baustellenschild oder eine Fahrzeugbeschriftung am Transporter.',
+  why:['Fällt sofort auf, auch auf Plakat und Transporter','Kräftig und selbstbewusst, wirkt nach Handwerk','Gut für große Überschriften und Zahlen (Förderung, Countdown)']},
+ plex:{n:3,name:'IBM Plex Sans',fam:"'IBM Plex Sans'",w:700,tt:'none',ls:'-.035em',
+  char:'Technisch und sauber, mit kleinen Ingenieurs-Details. Dieselbe Schrift wie in der Werkakte-App.',
+  why:['Gleiche Schrift wie die Werkakte-App: Webseite und App wirken wie aus einem Guss','Sachlich, gut lesbar, wirkt nach Planung und Technik','Ruhiger als die anderen zwei, wirkt seriös für Förderthemen']}
+};
+const MOT=[[3,64,'Überschrift baut sich Buchstabe für Buchstabe auf, von unscharf zu scharf.'],[58,34,'Leuchtring um den freien Platz fliegt groß ein und pulsiert, Etikett springt dazu.'],[16,25,'Punkte über den Köpfen: Maus drauf zeigt Name, Job und einen Satz.'],[95,78,'Buttons heben sich beim Drüberfahren, der Pfeil läuft mit.'],[92,50,'Warmer Lichtkegel folgt der Maus, das Foto zoomt langsam heran.']];
+const k=location.hash.slice(1)||'barlowc', f=F[k];
+const hs=`font-family:${f.fam};font-weight:${f.w};text-transform:${f.tt};letter-spacing:${f.ls}`;
+document.getElementById('r').innerHTML=`<div class="wrap"><div class="shot"><img src="/private/tmp/claude-501/s4/${k}.png">${MOT.map((m,i)=>`<div class="m" style="left:${m[0]}%;top:${m[1]}%">${i+1}</div>`).join('')}</div>
+<div class="side"><div class="brand">WARMHERZ · First Frame · Schrift</div><div class="no">Variante ${f.n} von 3</div>
+<div class="name" style="${hs}">${f.name}</div><p class="char">${f.char}</p>
+<div class="spec"><div class="big" style="${hs}">Wärme <span>für</span> Bielefeld</div><div class="abc" style="${hs}">Aa Bb Ää Öö Üü ß<br>0123456789 · −15 °C · 14.280 €</div></div>
+<div class="h">Warum es zum Heizungsbau passt</div><ul class="why">${f.why.map(w=>`<li>${w}</li>`).join('')}</ul>
+<div class="h">Was sich bewegt</div><ul>${MOT.map((m,i)=>`<li><b>${i+1}</b><span>${m[2]}</span></li>`).join('')}</ul></div></div>
+<div class="foot">Echte Seite, echter Screenshot (Desktop 1440 px) · Stil A Signal · fiktive Demo-Marke</div>`;
+</script></body></html>
