@@ -1,7 +1,6 @@
 /* Notdienst-Film im Kopfbereich (Wartung).
-   Ton: Der Film versucht MIT Sprecher zu starten. Blockiert der Browser das (Standard ohne Klick),
-   läuft er stumm weiter und der Ton geht beim ersten Klick/Tippen/Tastendruck auf der Seite an –
-   der Film beginnt dann von vorne mit Sprecher. Knopf schaltet Ton an/aus. */
+   Läuft immer stumm in Schleife. Ton NUR per Knopf: ein Durchlauf von vorne mit Sprecher, danach wieder stumm
+   (Eugen 18.11.2026: kein Dauerton). */
 (() => {
   const film = document.querySelector('[data-film]');
   if (!film) return;
@@ -37,35 +36,23 @@
     btn.setAttribute('aria-pressed', String(!v.muted));
     btnT.textContent = v.muted ? 'Film mit Ton ansehen' : 'Ton aus';
   };
-  const soundOn = (restart) => {
-    v.muted = false;
-    if (restart) v.currentTime = 0;
-    v.play().catch(() => { v.muted = true; v.play().catch(() => {}); showState(); });
-    showState();
-  };
+  // Ton nur auf Knopfdruck, genau EIN Durchlauf mit Sprecher, danach automatisch wieder stumm.
+  let soundRun = false, lastT = 0;
+  const mute = () => { v.muted = true; soundRun = false; showState(); };
+  v.addEventListener('timeupdate', () => {
+    if (soundRun && v.currentTime < lastT - 1) mute();   // Schleife springt auf 0 -> Durchlauf fertig
+    lastT = v.currentTime;
+  });
 
-  // 1) Versuch: direkt mit Ton starten. 2) Sonst stumm + Ton beim ersten Klick/Tippen.
-  let armed = false;
-  const firstGesture = (e) => {
-    if (e.target.closest && e.target.closest('[data-sound]')) return; // Knopf regelt selbst
-    off(); if (v.muted) soundOn(true);
-  };
-  const off = () => ['pointerdown', 'keydown', 'touchstart'].forEach(t => removeEventListener(t, firstGesture, true));
-  const arm = () => { if (armed) return; armed = true; ['pointerdown', 'keydown', 'touchstart'].forEach(t => addEventListener(t, firstGesture, { capture: true, passive: true })); };
-
-  const start = () => {
-    v.muted = false;
-    v.play().then(showState).catch(() => { v.muted = true; v.play().catch(() => {}); showState(); arm(); });
-  };
-
-  let started = false;
   new IntersectionObserver(es => {
-    if (es[0].isIntersecting) { if (!started) { started = true; start(); } else v.play().catch(() => {}); }
-    else v.pause();
+    if (es[0].isIntersecting) v.play().catch(() => {});
+    else { v.pause(); if (soundRun) mute(); }
   }, { threshold: .4 }).observe(film);
 
   btn && btn.addEventListener('click', () => {
-    off();
-    if (v.muted) soundOn(true); else { v.muted = true; showState(); }
+    if (!v.muted) return mute();
+    v.muted = false; soundRun = true; lastT = 0; v.currentTime = 0;
+    v.play().catch(() => mute());
+    showState();
   });
 })();
