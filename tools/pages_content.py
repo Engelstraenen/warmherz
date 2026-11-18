@@ -49,15 +49,15 @@ part('foerder-teaser', f'''<!-- ============ FÖRDERUNG (TEASER) ============ --
   <div class="wrap duo">
     <div>
       <p class="kicker">Förderung</p>
-      <h2 class="reveal">Bis zu <em>70 %</em> zahlt der Staat.</h2>
-      <p class="sub">Grundförderung, Klimabonus, Einkommensbonus, Effizienzbonus: Wir rechnen Ihren Zuschuss in einer Minute aus und stellen den Antrag mit Ihnen. Aber nicht mehr lange zum heutigen Satz.</p>
+      <h2 class="reveal">Bis zu <em>80 %</em> zahlt der Staat.</h2>
+      <p class="sub">Grundförderung, Klimabonus und Einkommensbonus: Wir rechnen Ihren Zuschuss in einer Minute aus und stellen den Antrag mit Ihnen. Aber nicht mehr lange zum heutigen Satz.</p>
       <ul class="checks"><li>Zuschuss in Euro, sofort im Rechner</li><li>Antrag füllen wir gemeinsam aus</li><li>Ab 1. Februar 2027 sinkt der Klimabonus</li></ul>
       <div class="dayvid-ctas">{btn('foerderung.html', 'Meinen Zuschuss berechnen')}</div>
     </div>
     <div class="result">
       <small>Beispiel: Ölheizung, 32.000 € Kosten, selbst bewohnt</small>
-      <div class="big">14.280 €</div>
-      <div class="later"><div><small>ab 1. Februar 2027</small><b>12.808 €</b></div><div class="loss"><small>Wer wartet, verliert</small><b>− 1.473 €</b></div></div>
+      <div class="big">12.880 €</div>
+      <div class="later"><div><small>ab 1. Februar 2027</small><b>11.445 €</b></div><div class="loss"><small>Wer wartet, verliert</small><b>− 1.435 €</b></div></div>
       <p class="fine">Beispielrechnung ohne Gewähr. Verbindlich ist die aktuelle BEG-Richtlinie.</p>
     </div>
   </div>
@@ -198,23 +198,24 @@ f'''<section class="sec light">
 
 # ------------------------------------------------------------------ Förderung, Ablauf, Foto-Check
 page('foerderung.html', {"title": "Förderrechner Wärmepumpe 2026 · WARMHERZ (Demo)", "desc": "Zuschuss für die Wärmepumpe in einer Minute berechnen. Ab 1. Februar 2027 sinkt der Klimageschwindigkeitsbonus.", "key": "foerderung"},
-phero('display', 'Förderung', 'Förderung', 'Bis zu 70 % <em>vom Staat.</em>', 'Rechnen Sie Ihren Zuschuss in einer Minute aus. Den Antrag stellen wir gemeinsam mit Ihnen, bevor der Bonus am 1. Februar sinkt.', btn('#foerderung', 'Zum Rechner'), 'short') +
+phero('display', 'Förderung', 'Förderung', 'Bis zu 80 % <em>vom Staat.</em>', 'Rechnen Sie Ihren Zuschuss in einer Minute aus. Den Antrag stellen wir gemeinsam mit Ihnen, bevor der Bonus am 1. Februar sinkt.', btn('#foerderung', 'Zum Rechner'), 'short') +
 '{{> band}}{{> rechner}}' + f'''<section class="sec">
   <div class="wrap">
-    <div class="sec-head"><div><p class="kicker">Die Bausteine</p><h2 class="reveal">Woraus sich Ihr <em>Zuschuss</em> zusammensetzt.</h2></div><p class="sub">Zusammen höchstens 70 % der förderfähigen Kosten.</p></div>
+    <div class="sec-head"><div><p class="kicker">Die Bausteine</p><h2 class="reveal">Woraus sich Ihr <em>Zuschuss</em> zusammensetzt.</h2></div><p class="sub">Stand: KfW-Programm 458, gültig ab 21.07.2026.</p></div>
     <div class="cards c4">
       <div class="card"><div class="big-n">30 %</div><h3>Grundförderung</h3><p>Für jeden Heizungstausch auf eine Wärmepumpe.</p></div>
       <div class="card"><div class="big-n">16 %</div><h3>Klimabonus</h3><p>Wenn Sie selbst wohnen und eine alte Öl-, Gas-, Kohle- oder Nachtspeicherheizung ersetzen. Ab 1.2.2027: 12 %.</p></div>
-      <div class="card"><div class="big-n">30 %</div><h3>Einkommensbonus</h3><p>Bei einem Haushaltseinkommen unter 40.000 € im Jahr.</p></div>
-      <div class="card"><div class="big-n">5 %</div><h3>Effizienzbonus</h3><p>Für Geräte mit natürlichem Kältemittel wie Propan.</p></div>
+      <div class="card"><div class="big-n">bis 40 %</div><h3>Einkommensbonus</h3><p>Gestaffelt nach zu versteuerndem Haushaltseinkommen: 40 % bis 30.000 €, 30 % bis 40.000 €, 10 % bis 50.000 €. Mit Kind unter 18 je 10.000 € mehr.</p></div>
+      <div class="card"><div class="big-n">70–80 %</div><h3>Höchstgrenze</h3><p>Zusammen höchstens 70 % der förderfähigen Kosten, bei geringem Einkommen bis 80 %. Förderfähig sind bis 28.000 € (ab 1.2.2027: 27.250 €).</p></div>
     </div>
   </div>
 </section>
 <section class="sec light"><div class="wrap"><p class="kicker">Wichtig</p><h2 class="reveal" style="margin-bottom:40px">Fragen zur <em>Förderung.</em></h2>''' + faq([
     ('Muss ich den Antrag vor dem Auftrag stellen?', 'Ja. Der Antrag muss vor Beginn der Arbeiten gestellt sein. Wir unterschreiben einen Vertrag mit Vorbehalt der Förderzusage, damit Sie sicher sind.'),
     ('Was passiert am 1. Februar 2027?', 'Der Klimageschwindigkeitsbonus sinkt von 16 auf 12 Prozent und danach weiter. Wer früher beauftragt, bekommt mehr.'),
+    ('Was ist der Wertschöpfungsbonus?', 'Ab 2027 ist ein neuer Baustein geplant: Wärmepumpen aus der EU sollen die volle Grundförderung behalten, andere weniger. Details stehen noch aus, wir halten Sie auf dem Laufenden.'),
     ('Wer stellt den Antrag?', 'Sie, mit uns zusammen. Wir füllen alles mit Ihnen aus und liefern alle Nachweise.'),
-    ('Gilt das auch für Vermieter?', 'Ja, die Grundförderung und der Effizienzbonus gelten auch für vermietete Häuser. Klima- und Einkommensbonus nur für Selbstnutzer.')]) + '</div></section>\n' +
+    ('Gilt das auch für Vermieter?', 'Ja, die Grundförderung von 30 % gilt auch für vermietete Häuser. Klima- und Einkommensbonus gibt es nur für Selbstnutzer.')]) + '</div></section>\n' +
 cta('Ihr Zuschuss steht fest?', ('foto-check.html', 'Jetzt Fotos schicken'), ('kontakt.html', 'Rückruf anfordern')))
 
 ablauf_old = open(os.path.join(T, 'ablauf-seite.html')).read()

@@ -1,0 +1,17 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "werkakte-web",
+      "runtimeExecutable": "bash",
+      "runtimeArgs": ["-c", "cd /Users/eugenkelberer/Documents/handwerker-app && CI=1 npx expo start --web --port 8091"],
+      "port": 8091
+    },
+    {
+      "name": "warmherz-site",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-m", "http.server", "4360", "--bind", "127.0.0.1", "--directory", "site"],
+      "port": 4360
+    }
+  ]
+}
