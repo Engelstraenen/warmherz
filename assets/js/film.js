@@ -40,6 +40,6 @@
     v.muted = !on;
     if (on) { v.currentTime = 0; v.play().catch(() => {}); }
     btn.setAttribute('aria-pressed', String(on));
-    btnT.textContent = on ? 'Ton aus' : 'Mit Ton ansehen';
+    btnT.textContent = on ? 'Ton aus' : 'Film mit Ton ansehen';
   });
 })();
