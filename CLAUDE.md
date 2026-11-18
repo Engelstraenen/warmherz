@@ -9,7 +9,9 @@ Gilt zusätzlich zur globalen Masterfile (~/.claude/CLAUDE.md).
 - Vorgänger/Referenz: WÄRMEWERK-Demo (https://engelstraenen.github.io/demo-getlayers-01/pex-pr-preise-leere-punkte-v1/referenzen/waermewerk/), wirkte zu technisch/kalt.
 
 ## 2. Qualitätsanspruch & Referenzen
-- Herzlich statt technisch: warme Farben (Creme #F6EFE6, Glut #D9622B, Kupfer #B87333, Petrol #2F6F6A für Bewerber-Seite, Tinte #2B1D14), Serif-Headlines, echte Gesichter.
+- STIL A „SIGNAL“ (Eugen 18.11.2026, verbindlich): Schwarz #0E0E0E, Weiß, Papier #F2EFEA, EINE Akzentfarbe Signal-Orange #FF5B1F. Schrift: Bricolage Grotesque 800 (Überschriften, eng gesetzt) + Inter Tight (Text). NIE Kursivschrift, keine Serifen-Akzente, kein Braun/Creme/Petrol. Hervorhebung nur per Farbe.
+- Gruppenfotos immer eng, in Interaktion, echt (nie in einer Reihe mit Abstand). Freier Platz = Foto erzählt es selbst (Armgeste/leerer Stuhl) + kräftiger orange Leuchtring mit Etikett, nie dünne gestrichelte Linie.
+- Jeder Button muss zum passenden Ziel führen (Chef → Kontakt/Anruf, Job-Button → Bewerbungs-Chat mit vorgewählter Stelle).
 - Fotos fotorealistisch über sjinn (Nano Banana 2, Unlimited), keine Schrift in Bildern.
 
 ## 3. Regeln für dieses Projekt
@@ -40,11 +42,12 @@ Gilt zusätzlich zur globalen Masterfile (~/.claude/CLAUDE.md).
 - Konzept-Boards neu rendern: headless Chrome auf `konzepte/board.html#a|b|c` (2520×1560), dann `sips` → JPEG.
 
 ## 8. Offene Fragen
-- Feedback zu den 13 First Frames.
-- Keller-Nachher-Bild (sjinn, Ref = keller_vorher) holen, sobald Chrome-Erweiterung wieder verbunden ist; bis dahin blendet sich Vorher/Nachher selbst aus.
+- Feedback zu Stil A auf der ganzen Seite.
+- Förderzahlen gegen BEG-Richtlinie prüfen.
 - Motion-Video vom Startbereich (GIF/MP4) noch offen.
 
 ## 9. Entschieden
+- 18.11.2026: Stil A „Signal“ gewählt. Startfoto h-luecke (Armgeste in die Lücke), Jobs-Einstieg h-stuhl (leerer Stuhl, Kaffee). Neuer Kontaktbereich mit Rückruf-Formular und Themenvorwahl.
 - 18.11.2026: Konzept B + C kombiniert (Teamfoto mit Lücke + Ein Tag mit Lukas + Countdown). Dazu Leistungen, Wärmepumpe interaktiv, Förderrechner, Vorab-Check, Karriere mit Chat-Bewerbung, Chef/Nachfolge.
 - 18.11.2026: Statische Seite in `site/` (HTML/CSS/JS, GSAP 3.12.5 + Schriften Fraunces/Manrope lokal, kein Google-Abruf). Fotos 4K von sjinn → WebP 2000–2400 px.
 - 17.11.2026: Neue fiktive Marke WARMHERZ statt WÄRMEWERK. Werkakte läuft unter Engelstränen UG (später PROJEKT EX UG).
