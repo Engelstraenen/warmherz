@@ -190,7 +190,6 @@ f'''{{{{> bad-flow}}}}<section class="sec light">
 ''' + cta('Wie sieht Ihr Bad heute aus?', ('foto-check.html', 'Fotos schicken'), ('kontakt.html', 'Beratung anfragen')))
 
 page('wartung.html', {"title": "Wartung & Notdienst · WARMHERZ (Demo)", "desc": "Wartung für Wärmepumpe und Heizung, Notdienst im Winter rund um die Uhr.", "key": "wartung"},
-phero('p-wartung', 'Leistungen<span>/</span>Wartung & Notdienst', 'Wartung & Notdienst', 'Wenn es kalt wird, <em>sind wir da.</em>', 'Jährliche Wartung, Fernüberwachung auf Wunsch und im Winter ein Notdienst rund um die Uhr. Mit echten Menschen am Telefon.', btn('tel:+495210000099', 'Notdienst: 0521 000 00 99') + btn('foto-check.html', 'Störung per Foto melden', 'line')) +
 f'''{{{{> notdienst-film}}}}{{{{> notdienst-flow}}}}<section class="sec light">
   <div class="wrap">
     <div class="sec-head"><div><p class="kicker">Wartungsvertrag</p><h2 class="reveal">Einmal im Jahr. <em>Dann haben Sie Ruhe.</em></h2></div><p class="sub">Beispielpreise für die Demo, zzgl. Material.</p></div>

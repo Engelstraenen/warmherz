@@ -1,32 +1,27 @@
-<!-- ============ NOTDIENST-FILM (Video + Schlagwörter, synchron zur Videozeit) ============ -->
-<section class="film-sec" id="notdienst-film">
-  <div class="wrap">
-    <div class="film" data-film>
-      <video data-src="assets/video/notdienst.mp4" data-src-m="assets/video/notdienst-720.mp4" poster="assets/img/notdienst-poster.webp" muted loop playsinline preload="metadata" aria-label="Notdienst-Film: Murat kommt nachts im Schnee zu einer Familie"></video>
-      <div class="film-shade" aria-hidden="true"></div>
+<!-- ============ KOPFBEREICH WARTUNG = NOTDIENST-FILM (Video statt Foto, Schlagwörter synchron zur Videozeit) ============ -->
+<section class="phero film-hero" id="notdienst-film" data-film>
+  <video data-src="assets/video/notdienst.mp4" data-src-m="assets/video/notdienst-720.mp4" poster="assets/img/notdienst-poster.webp" muted loop playsinline preload="auto" aria-label="Notdienst-Film: Murat kommt nachts im Schnee zu einer Familie"></video>
+  <div class="shade"></div>
 
-      <div class="film-hud" aria-hidden="true">
-        <span class="fh-chip" data-at="0.2"><b data-clock>02:14</b> Uhr</span>
-        <span class="fh-chip" data-at="0.7"><b>−8</b> °C</span>
-      </div>
+  <div class="film-hud" aria-hidden="true">
+    <span class="fh-chip" data-at="0.2"><b data-clock>02:14</b> Uhr</span>
+    <span class="fh-chip" data-at="0.7"><b>−8</b> °C</span>
+  </div>
 
-      <div class="film-words" aria-hidden="true">
-        <p class="fw" data-at="2.2" data-out="4.3">Heizung aus.</p>
-        <p class="fw" data-at="4.5" data-out="6.7">Wir kommen <em>trotzdem.</em></p>
-        <p class="fw" data-at="6.9" data-out="8.6">Rund um die Uhr.</p>
-      </div>
-
-      <div class="film-end" data-at="8.6" aria-hidden="true">
-        <p class="fe-k">Notdienst · 24/7</p>
-        <p class="fe-h">Wenn es kalt wird, <em>sind wir da.</em></p>
-      </div>
-
-      <button class="film-sound" type="button" data-sound aria-pressed="false"><span class="ic" aria-hidden="true"></span><span data-sound-t>Mit Ton ansehen</span></button>
-      <div class="film-bar" aria-hidden="true"><i data-film-bar></i></div>
+  <div class="in">
+    <div class="crumbs"><a href="index.html">Start</a><span>/</span>Leistungen<span>/</span>Wartung &amp; Notdienst</div>
+    <p class="kicker">Wartung &amp; Notdienst · 24/7</p>
+    <div class="film-stage">
+      <p class="fw" data-at="2.2" data-out="4.3" aria-hidden="true">Heizung aus.</p>
+      <p class="fw" data-at="4.5" data-out="6.7" aria-hidden="true">Wir kommen <em>trotzdem.</em></p>
+      <p class="fw" data-at="6.9" data-out="8.5" aria-hidden="true">Rund um die Uhr.</p>
+      <h1 class="film-h1" data-at="8.6">Wenn es kalt wird,<br> <em>sind wir da.</em></h1>
     </div>
-    <div class="film-under">
-      <p>Echte Menschen, auch nachts. <b>Murat</b> und sein Team fahren im Winter Notdienst für Bielefeld und Umgebung.</p>
-      <a href="tel:+495210000099" class="btn acc">0521 000 00 99 <span>→</span></a>
+    <div class="ctas">
+      <button class="btn acc film-sound" type="button" data-sound aria-pressed="false"><span class="ic" aria-hidden="true"></span><span data-sound-t>Film mit Ton ansehen</span></button>
+      <a href="tel:+495210000099" class="btn white">Notdienst: 0521 000 00 99 <span>→</span></a>
+      <a href="foto-check.html" class="btn line">Störung per Foto melden <span>→</span></a>
     </div>
   </div>
+  <div class="film-bar" aria-hidden="true"><i data-film-bar></i></div>
 </section>
