@@ -63,9 +63,18 @@
   if (wf) {
     const cv = $('[data-seq]', wf), still = $('[data-seq-still]', wf), n = +cv.dataset.frames || 0, path = cv.dataset.path;
     const tEl = $('[data-wf-temp]', wf), bar = $('[data-wf-bar]', wf), caps = $$('.wf-cap', wf), cta = $('.wf-cta', wf);
-    const frames = []; let last = -1;
-    if (n > 0) { still.style.display = 'none'; for (let i = 0; i < n; i++) { const im = new Image(); im.src = `${path}${String(i + 1).padStart(3, '0')}.webp`; frames.push(im); } }
+    const frames = []; let last = -1, loaded = false;
     const ctx = cv.getContext('2d');
+    // Bildfolge erst laden, wenn der Abschnitt in die Nähe kommt (Startseite bleibt schnell)
+    function load() {
+      if (loaded || !n) return; loaded = true;
+      for (let i = 0; i < n; i++) {
+        const im = new Image(); im.decoding = 'async'; im.src = `${path}${String(i + 1).padStart(3, '0')}.webp`;
+        if (i === 0) im.onload = () => { still.style.display = 'none'; last = -1; update(); };
+        frames.push(im);
+      }
+    }
+    if (n) new IntersectionObserver(es => { if (es[0].isIntersecting) load(); }, { rootMargin: '150% 0px' }).observe(wf);
     function draw(i) {
       const im = frames[i]; if (!im || !im.complete || !im.naturalWidth) return;
       const w = cv.width = cv.clientWidth * devicePixelRatio, h = cv.height = cv.clientHeight * devicePixelRatio;
@@ -81,12 +90,14 @@
       bar.style.width = (p * 100) + '%';
       caps.forEach(c => c.classList.toggle('on', p >= +c.dataset.from && p < +c.dataset.to));
       cta.classList.toggle('on', p > .82);
-      if (n) { const i = Math.min(n - 1, Math.round(p * (n - 1))); if (i !== last) { last = i; draw(i); } }
-      else if (!reduce) still.style.transform = `scale(${1.15 - p * .15})`;
+      if (frames.length) {
+        let i = Math.min(n - 1, Math.round(p * (n - 1)));
+        while (i > 0 && !(frames[i].complete && frames[i].naturalWidth)) i--;   // noch nicht geladen: nächstes fertiges Bild davor
+        if (i !== last) { last = i; draw(i); }
+      } else if (!reduce) still.style.transform = `scale(${1.15 - p * .15})`;
     }
     addEventListener('scroll', () => requestAnimationFrame(update), { passive: true });
     addEventListener('resize', () => { last = -1; update(); });
-    if (frames[0]) frames[0].onload = () => { last = -1; update(); };
     update();
   }
 })();
