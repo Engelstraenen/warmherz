@@ -26,7 +26,7 @@ Gilt zusätzlich zur globalen Masterfile (~/.claude/CLAUDE.md).
 
 ## 5. Zugänge
 - sjinn.ai: in Chrome eingeloggt (17.11.2026) ✅
-- GitHub (Engelstraenen) ✅
+- GitHub (Engelstraenen) ✅ – gh-Token ohne `workflow`-Recht → Pages über Branch gh-pages statt Actions-Workflow
 
 ## 5b. Seitenstruktur (Eugen 18.11.2026)
 - Mehrseitig, nie wieder alles auf einer langen Seite: Landing (index) kurz und stark mit Teasern, jede Leistung/Karriere/Service als eigene Unterseite.
@@ -38,9 +38,10 @@ Gilt zusätzlich zur globalen Masterfile (~/.claude/CLAUDE.md).
 1. Konzept-Boards (A Zwei Türen, B Ein Tag mit Lukas, C Hier fehlt noch jemand) → Eugen wählt/kombiniert
 2. Fotos auf sjinn (4K, 16:9), Eugen sieht sie im Chat
 3. Seite bauen (statisches HTML/CSS/JS in `site/`), Desktop + Handy prüfen
-4. Veröffentlichen (GitHub Pages) nur nach OK
+4. IMMER auf GitHub pushen und öffentlich auf GitHub Pages stellen, ohne Rückfrage (Eugen 19.11.2026): `tools/deploy.sh "Beschreibung"`
 
 ## 7. Befehle
+- Online stellen: `tools/deploy.sh "Beschreibung"` (baut, committet, pusht main + Branch gh-pages). Repo: https://github.com/Engelstraenen/warmherz (öffentlich), Seite: https://engelstraenen.github.io/warmherz/
 - Seiten bauen: `python3 tools/pages_content.py && python3 tools/build.py` (src/layout.html + src/pages + src/parts → site/, prüft alle internen Links). NIE site/*.html direkt bearbeiten.
 - Seite lokal: `cd site && python3 -m http.server 4360 --bind 127.0.0.1` → http://localhost:4360
 - Vorschau-Modus für First Frames: `?shot=<section-id>` (zeigt nur diesen Abschnitt, Animationen eingefroren), dazu `&scene=<0-6>`, `&hover=<selector>`, `&hide=<selector>`, `&chat`. Rendern: `tools/shot.sh "?shot=foerderung" 1440 900 out.png`.
@@ -49,12 +50,11 @@ Gilt zusätzlich zur globalen Masterfile (~/.claude/CLAUDE.md).
 - Konzept-Boards neu rendern: headless Chrome auf `konzepte/board.html#a|b|c` (2520×1560), dann `sips` → JPEG.
 
 ## 8. Offene Fragen
-- Eugens Feedback zu: mehrseitiger Website, Scroll-Video, App-Farben (Design „Signal“, seit 19.11.2026 in main der handwerker-app gemergt, noch nicht gepusht).
-- Veröffentlichung (GitHub Pages) nur nach OK.
-- App „Team & Nachwuchs“ (Job teilen, Bewerber-Akte, Berichtsheft) noch nicht gebaut.
-- Motion-Video vom Startbereich (GIF/MP4) noch offen.
+- Eugen schaut alles durch (Website + App online), danach Feedback.
+- Webseite: ?von= aus Job-Links an den Bewerbungs-Chat weitergeben.
 
 ## 9. Entschieden
+- 19.11.2026 (Eugen): Alles immer auf GitHub pushen und öffentlich stellen, ohne Rückfrage. Website online: https://engelstraenen.github.io/warmherz/ · App-Demo: https://engelstraenen.github.io/werkakte/
 - 18.11.2026 (Claude, Eugen schläft, Vollmacht): Scroll-Video = MiniMax H3 (768p, ohne Kamin); Wan 3.0 verworfen (480p, Kamin passt nicht zu „ohne Öl/Gas“). Rechner auf KfW 458 korrigiert, Werbezahl „bis zu 22.400 €“ (80 %).
 - 18.11.2026: Diashow-Video (Fotos mit Kamerafahrt) abgelehnt → echtes Video über sjinn. Landing bekommt Scroll-Video „Von −10 °C auf 21 °C“ (Startbild-Wahl offen).
 - 18.11.2026: Mehrseitige Website mit Baukasten, Karriere-Bereich (Jobs/Ausbildung/Fachkräfte), Foto-Check-Seite.
