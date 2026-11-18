@@ -25,3 +25,6 @@
 @media (prefers-reduced-motion:reduce){.wf{height:auto}.wf-pin{position:relative;height:90vh}.wf-cap{position:relative;opacity:1;transform:none;margin-bottom:14px}.wf-cta{opacity:1;transform:none;pointer-events:auto}}
 
 @media (max-width:640px){.links.open ~ .chip-count{display:none}}
+
+.sel{display:block;width:100%;margin-top:10px;padding:14px 16px;border-radius:10px;border:2px solid var(--line-l);background:#fff;font:inherit;font-size:16px;font-weight:600;color:var(--ink)}
+.sel:focus{outline:none;border-color:var(--acc)}

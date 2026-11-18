@@ -241,34 +241,37 @@
 
   /* ---------- Förderrechner ---------- */
   if ($('[data-cost]')) {
-  const R = { grund: 30, klimaNow: 16, klimaLater: 12, einkommen: 30, effizienz: 5, max: 70, capNow: 28000, capLater: 27250 };
+  // Stand KfW 458 ab 21.07.2026: Effizienzbonus nicht mehr aufgeführt, Einkommensbonus gestaffelt, Deckel 70 % (80 % bei geringem Einkommen)
+  const R = { grund: 30, klimaNow: 16, klimaLater: 12, max: 70, maxLow: 80, capNow: 28000, capLater: 27250 };
   const costIn = $('[data-cost]'), bars = $('[data-bars]');
   let shown = 0;
   function calc() {
     const owner = $('input[name=owner]:checked').value === '1';
     const fuel = $('input[name=fuel]:checked').value;
-    const cost = +costIn.value, inc = $('[data-income]').checked, nat = $('[data-natural]').checked;
+    const cost = +costIn.value, inc = +$('[data-income]').value, child = $('[data-child]').checked, t = child ? 10000 : 0;
+    const incBonus = !owner ? 0 : inc <= 30000 + t ? 40 : inc <= 40000 + t ? 30 : inc <= 50000 + t ? 10 : 0;
+    const cap = owner && inc <= 30000 + t ? R.maxLow : R.max;
     $('[data-cost-out]').textContent = eur(cost) + ' €';
     const parts = klima => [
       ['Grundförderung', R.grund, true],
       ['Klimageschwindigkeitsbonus', klima, owner && ['oel', 'gas', 'kohle', 'nacht'].includes(fuel)],
-      ['Einkommensbonus', R.einkommen, owner && inc],
-      ['Effizienzbonus', R.effizienz, nat]
+      ['Einkommensbonus', incBonus, incBonus > 0]
     ];
-    const rate = ps => Math.min(R.max, ps.reduce((s, p) => s + (p[2] ? p[1] : 0), 0));
+    const rate = ps => Math.min(cap, ps.reduce((s, p) => s + (p[2] ? p[1] : 0), 0));
     const pNow = parts(R.klimaNow), pLater = parts(R.klimaLater);
     const now = Math.min(cost, R.capNow) * rate(pNow) / 100;
     const later = Math.min(cost, R.capLater) * rate(pLater) / 100;
-    bars.innerHTML = pNow.map(p => `<div class="bar ${p[2] ? '' : 'off'}"><span>${p[0]}</span><span>${p[2] ? p[1] + ' %' : '–'}</span><i><b style="width:${p[2] ? p[1] / R.max * 100 : 0}%"></b></i></div>`).join('') +
+    bars.innerHTML = pNow.map(p => `<div class="bar ${p[2] ? '' : 'off'}"><span>${p[0]}</span><span>${p[2] ? p[1] + ' %' : '–'}</span><i><b style="width:${p[2] ? p[1] / R.maxLow * 100 : 0}%"></b></i></div>`).join('') +
       `<div class="bar"><span><b style="color:#fff">Zusammen</b></span><span><b style="color:#FF5B1F">${rate(pNow)} %</b> von ${eur(Math.min(cost, R.capNow))} €</span></div>`;
     $('[data-grant-later]').textContent = eur(later);
     $('[data-loss]').textContent = eur(Math.max(0, now - later));
     const el = $('[data-grant-now]');
     if (reduce) { el.textContent = eur(now); shown = now; return; }
     const from = shown, t0 = performance.now();
+    clearTimeout(calc.t); calc.t = setTimeout(() => { el.textContent = eur(now); shown = now; }, 700);  // falls Animation pausiert (Hintergrund-Tab)
     (function run(n) { const k = Math.min(1, (n - t0) / 600), e = 1 - Math.pow(1 - k, 3); el.textContent = eur(from + (now - from) * e); if (k < 1) requestAnimationFrame(run); else shown = now; })(t0);
   }
-  $$('.calc input').forEach(i => i.addEventListener('input', calc)); calc();
+  $$('.calc input, .calc select').forEach(i => i.addEventListener('input', calc)); calc();
   }
 
   /* ---------- Vorher / Nachher ---------- */
