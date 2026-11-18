@@ -54,6 +54,7 @@ Gilt zusätzlich zur globalen Masterfile (~/.claude/CLAUDE.md).
 - Webseite: ?von= aus Job-Links an den Bewerbungs-Chat weitergeben.
 
 ## 9. Entschieden
+- 19.11.2026: Scroll-Geschichten (flow.js) auf Ablauf, Fußbodenheizung, Bad, Wartung; Heizungstausch-Kopfbild = Vorher/Nachher-Schieber. projektex.de hat eine KOPIE der Seite (kein iframe) → nach jedem Deploy muss Grogpot neu hochladen.
 - 19.11.2026 (Eugen): Alles immer auf GitHub pushen und öffentlich stellen, ohne Rückfrage. Website online: https://engelstraenen.github.io/warmherz/ · App-Demo: https://engelstraenen.github.io/werkakte/
 - 18.11.2026 (Claude, Eugen schläft, Vollmacht): Scroll-Video = MiniMax H3 (768p, ohne Kamin); Wan 3.0 verworfen (480p, Kamin passt nicht zu „ohne Öl/Gas“). Rechner auf KfW 458 korrigiert, Werbezahl „bis zu 22.400 €“ (80 %).
 - 18.11.2026: Diashow-Video (Fotos mit Kamerafahrt) abgelehnt → echtes Video über sjinn. Landing bekommt Scroll-Video „Von −10 °C auf 21 °C“ (Startbild-Wahl offen).

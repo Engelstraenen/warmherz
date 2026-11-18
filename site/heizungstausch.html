@@ -44,9 +44,15 @@
 </header>
 
 <main>
-<section class="phero ">
-  <img src="assets/img/keller-nachher.webp" alt="" fetchpriority="high">
+<section class="phero ba-hero" id="vorher-nachher">
+  <div class="ba-box" data-ba style="--p:50%">
+    <img src="assets/img/keller-nachher.webp" alt="Nachher: heller Technikraum mit Wärmepumpe" fetchpriority="high">
+    <div class="ba-before"><img src="assets/img/keller-vorher.webp" alt="Vorher: alter Heizungskeller mit Öltank"></div>
+    <input type="range" min="0" max="100" value="50" aria-label="Vorher-Nachher-Regler" data-ba-range>
+    <div class="ba-handle" aria-hidden="true"><span>⟷</span></div>
+  </div>
   <div class="shade"></div>
+  <span class="ba-tag l">Vorher · 1990</span><span class="ba-tag r">Nachher · heute</span>
   <div class="in"><div class="crumbs"><a href="index.html">Start</a><span>/</span>Leistungen<span>/</span>Heizungstausch</div>
     <p class="kicker">Heizungstausch</p>
     <h1 class="reveal">Öl raus. <em>Platz rein.</em></h1>
@@ -54,22 +60,6 @@
     <div class="ctas"><a href="foerderung.html" class="btn acc">Zuschuss berechnen <span>→</span></a><a href="ablauf.html" class="btn line">So läuft's ab <span>→</span></a></div>
   </div>
 </section>
-<!-- ============ VORHER / NACHHER ============ -->
-<section class="ba" id="vorher-nachher">
-  <div class="wrap">
-    <p class="kicker">Vorher / Nachher</p>
-    <h2 class="reveal">Aus dem Öltank-Keller wird <em>Platz.</em></h2>
-    <div class="ba-box" data-ba style="--p:50%">
-      <img src="assets/img/keller-nachher.webp" alt="Nachher: heller Technikraum mit Wärmepumpe" loading="lazy">
-      <div class="ba-before"><img src="assets/img/keller-vorher.webp" alt="Vorher: alter Heizungskeller mit Öltank" loading="lazy"></div>
-      <span class="ba-tag l">1990</span><span class="ba-tag r">Heute</span>
-      <input type="range" min="0" max="100" value="50" aria-label="Vorher-Nachher-Regler" data-ba-range>
-      <div class="ba-handle" aria-hidden="true"><span>⟷</span></div>
-    </div>
-    <div class="ba-facts"><div><b>⅓</b><span>Platz im Keller gewonnen</span></div><div><b>0</b><span>Öllieferungen pro Jahr</span></div><div><b>2,5</b><span>Tage Einbau</span></div></div>
-  </div>
-</section>
-
 <section class="sec light">
   <div class="wrap">
     <div class="sec-head"><div><p class="kicker">In drei Tagen</p><h2 class="reveal">Was bei Ihnen <em>passiert.</em></h2></div><p class="sub">Folie auf dem Boden, Überzieher an den Schuhen. Abends ist es wieder warm.</p></div>
@@ -114,5 +104,6 @@
 <script src="assets/js/ScrollTrigger.min.js"></script>
 <script src="assets/js/app.js"></script>
 <script src="assets/js/pages.js"></script>
+<script src="assets/js/flow.js"></script>
 </body>
 </html>

@@ -20,6 +20,25 @@ def phero(img, crumb, kicker, h1, sub, ctas='', cls=''):
   </div>
 </section>
 '''
+def phero_ba(crumb, kicker, h1, sub, ctas):
+    """Kopfbild mit Vorher/Nachher-Schieber (Keller 1990 / heute)."""
+    return f'''<section class="phero ba-hero" id="vorher-nachher">
+  <div class="ba-box" data-ba style="--p:50%">
+    <img src="assets/img/keller-nachher.webp" alt="Nachher: heller Technikraum mit Wärmepumpe" fetchpriority="high">
+    <div class="ba-before"><img src="assets/img/keller-vorher.webp" alt="Vorher: alter Heizungskeller mit Öltank"></div>
+    <input type="range" min="0" max="100" value="50" aria-label="Vorher-Nachher-Regler" data-ba-range>
+    <div class="ba-handle" aria-hidden="true"><span>⟷</span></div>
+  </div>
+  <div class="shade"></div>
+  <span class="ba-tag l">Vorher · 1990</span><span class="ba-tag r">Nachher · heute</span>
+  <div class="in"><div class="crumbs"><a href="index.html">Start</a><span>/</span>{crumb}</div>
+    <p class="kicker">{kicker}</p>
+    <h1 class="reveal">{h1}</h1>
+    <p class="sub reveal">{sub}</p>
+    <div class="ctas">{ctas}</div>
+  </div>
+</section>
+'''
 def btn(href, text, kind='acc'): return f'<a href="{href}" class="btn {kind}">{text} <span>→</span></a>'
 def faq(items): return '<div class="faq">' + ''.join(f'<details><summary>{q}</summary><p>{a}</p></details>' for q, a in items) + '</div>'
 def cta(h, b1, b2=None): return f'''<section class="cta-band"><div class="wrap"><h2>{h}</h2><div class="ctas">{btn(*b1, 'dark')}{btn(*b2, 'white') if b2 else ''}</div></div></section>
@@ -125,8 +144,8 @@ phero('lukas', 'Leistungen<span>/</span>Wärmepumpe', 'Wärmepumpe', 'Wärme aus
 cta('Passt eine Wärmepumpe zu Ihrem Haus?', ('foto-check.html', 'Fotos schicken, wir prüfen'), ('foerderung.html', 'Zuschuss berechnen')))
 
 page('heizungstausch.html', {"title": "Heizungstausch · WARMHERZ Bielefeld (Demo)", "desc": "Öl- oder Gasheizung tauschen: Rückbau, Einbau der Wärmepumpe in 2–3 Tagen, Förderantrag inklusive.", "key": "heizungstausch"},
-phero('keller-nachher', 'Leistungen<span>/</span>Heizungstausch', 'Heizungstausch', 'Öl raus. <em>Platz rein.</em>', 'Wir bauen Ihre alte Öl- oder Gasheizung zurück, entsorgen den Tank und setzen eine Wärmepumpe ein. Meist in 2–3 Tagen, mit Förderantrag.', btn('foerderung.html', 'Zuschuss berechnen') + btn('ablauf.html', "So läuft's ab", 'line')) +
-'{{> vorher-nachher}}' + f'''<section class="sec light">
+phero_ba('Leistungen<span>/</span>Heizungstausch', 'Heizungstausch', 'Öl raus. <em>Platz rein.</em>', 'Wir bauen Ihre alte Öl- oder Gasheizung zurück, entsorgen den Tank und setzen eine Wärmepumpe ein. Meist in 2–3 Tagen, mit Förderantrag.', btn('foerderung.html', 'Zuschuss berechnen') + btn('ablauf.html', "So läuft's ab", 'line')) +
+f'''<section class="sec light">
   <div class="wrap">
     <div class="sec-head"><div><p class="kicker">In drei Tagen</p><h2 class="reveal">Was bei Ihnen <em>passiert.</em></h2></div><p class="sub">Folie auf dem Boden, Überzieher an den Schuhen. Abends ist es wieder warm.</p></div>
     <div class="cards">
@@ -147,25 +166,14 @@ phero('keller-nachher', 'Leistungen<span>/</span>Heizungstausch', 'Heizungstausc
 
 page('fussbodenheizung.html', {"title": "Fußbodenheizung nachrüsten · WARMHERZ (Demo)", "desc": "Fußbodenheizung nachträglich einfräsen: ohne neuen Estrich, ideal für die Wärmepumpe.", "key": "fussbodenheizung"},
 phero('p-fussboden', 'Leistungen<span>/</span>Fußbodenheizung', 'Fußbodenheizung', 'Warme Füße. <em>Ohne neuen Estrich.</em>', 'Wir fräsen die Rohre direkt in Ihren vorhandenen Estrich. Kein Aufreißen, kein wochenlanges Trocknen: meist ein Tag pro Raum.', btn('foto-check.html', 'Raum fotografieren') + btn('kontakt.html', 'Rückruf anfordern', 'line')) +
-f'''<section class="sec light">
-  <div class="wrap">
-    <div class="sec-head"><div><p class="kicker">Nachträglich einfräsen</p><h2 class="reveal">So geht das in <em>einem Tag.</em></h2></div><p class="sub">Staubarm mit Absaugung. Sie können abends wieder im Raum stehen.</p></div>
-    <div class="cards c4">
-      <div class="card"><div class="big-n">1</div><h3>Boden frei</h3><p>Alter Belag runter, Estrich prüfen.</p></div>
-      <div class="card"><div class="big-n">2</div><h3>Fräsen</h3><p>Kanäle im Schneckenmuster, mit Absaugung.</p></div>
-      <div class="card"><div class="big-n">3</div><h3>Rohre rein</h3><p>Einlegen, an den Verteiler, Druck prüfen.</p></div>
-      <div class="card"><div class="big-n">4</div><h3>Verschließen</h3><p>Ausgleichsmasse drauf, nach kurzer Zeit begehbar.</p></div>
-    </div>
-  </div>
-</section>
-<section class="sec"><div class="wrap duo"><div><p class="kicker">Warum?</p><h2 class="reveal">Der beste Partner für die <em>Wärmepumpe.</em></h2><p class="sub">Eine Fußbodenheizung braucht nur 30 bis 35 °C. Damit arbeitet die Wärmepumpe besonders sparsam.</p>
+f'''{{{{> boden-flow}}}}<section class="sec"><div class="wrap duo"><div><p class="kicker">Warum?</p><h2 class="reveal">Der beste Partner für die <em>Wärmepumpe.</em></h2><p class="sub">Eine Fußbodenheizung braucht nur 30 bis 35 °C. Damit arbeitet die Wärmepumpe besonders sparsam.</p>
 <ul class="checks"><li>Bis zu 15 % weniger Stromverbrauch</li><li>Keine Heizkörper unter dem Fenster</li><li>Gleichmäßige Wärme, weniger Staub in der Luft</li></ul></div>
 <div class="split-img"><img src="assets/img/familie.webp" alt="Kind barfuß auf warmem Holzboden" loading="lazy"></div></div></section>
 ''' + cta('Welche Räume sollen warm werden?', ('foto-check.html', 'Fotos schicken'), ('kontakt.html', 'Rückruf anfordern')))
 
 page('bad.html', {"title": "Bad · WARMHERZ Bielefeld (Demo)", "desc": "Badsanierung vom Familienbetrieb: vom Gäste-WC bis zum barrierefreien Bad, mit festem Endtermin.", "key": "bad"},
 phero('p-bad', 'Leistungen<span>/</span>Bad', 'Bad', 'Ein neues Bad. <em>Mit festem Endtermin.</em>', 'Fliesen, Wasser, Wärme und Licht aus einer Hand. Wir sagen Ihnen vorher, an welchem Tag Sie wieder duschen.', btn('foto-check.html', 'Bad fotografieren') + btn('kontakt.html', 'Beratung anfragen', 'line')) +
-f'''<section class="sec light">
+f'''{{{{> bad-flow}}}}<section class="sec light">
   <div class="wrap">
     <div class="sec-head"><div><p class="kicker">Was wir bauen</p><h2 class="reveal">Für jedes Alter. <em>Für jedes Budget.</em></h2></div></div>
     <div class="cards">
@@ -181,7 +189,7 @@ f'''<section class="sec light">
 
 page('wartung.html', {"title": "Wartung & Notdienst · WARMHERZ (Demo)", "desc": "Wartung für Wärmepumpe und Heizung, Notdienst im Winter rund um die Uhr.", "key": "wartung"},
 phero('p-wartung', 'Leistungen<span>/</span>Wartung & Notdienst', 'Wartung & Notdienst', 'Wenn es kalt wird, <em>sind wir da.</em>', 'Jährliche Wartung, Fernüberwachung auf Wunsch und im Winter ein Notdienst rund um die Uhr. Mit echten Menschen am Telefon.', btn('tel:+495210000099', 'Notdienst: 0521 000 00 99') + btn('foto-check.html', 'Störung per Foto melden', 'line')) +
-f'''<section class="sec light">
+f'''{{{{> notdienst-flow}}}}<section class="sec light">
   <div class="wrap">
     <div class="sec-head"><div><p class="kicker">Wartungsvertrag</p><h2 class="reveal">Einmal im Jahr. <em>Dann haben Sie Ruhe.</em></h2></div><p class="sub">Beispielpreise für die Demo, zzgl. Material.</p></div>
     <div class="plans">
