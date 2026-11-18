@@ -7,10 +7,12 @@ P, T = os.path.join(ROOT, 'src/pages'), os.path.join(ROOT, 'src/parts')
 def page(fn, meta, body): open(os.path.join(P, fn), 'w').write('<!--' + json.dumps(meta, ensure_ascii=False) + '-->\n' + body)
 def part(fn, body): open(os.path.join(T, fn + '.html'), 'w').write(body)
 
-def phero(img, crumb, kicker, h1, sub, ctas='', cls=''):
+def phero(img, crumb, kicker, h1, sub, ctas='', cls='', video=None):
     c = f'<div class="crumbs"><a href="index.html">Start</a><span>/</span>{crumb}</div>' if crumb else ''
+    media = (f'<video src="assets/video/{video}.mp4" poster="assets/img/{img}.webp" autoplay muted loop playsinline preload="auto" aria-hidden="true"></video>'
+             if video else f'<img src="assets/img/{img}.webp" alt="" fetchpriority="high">')
     return f'''<section class="phero {cls}">
-  <img src="assets/img/{img}.webp" alt="" fetchpriority="high">
+  {media}
   <div class="shade"></div>
   <div class="in">{c}
     <p class="kicker">{kicker}</p>
@@ -189,7 +191,7 @@ f'''{{{{> bad-flow}}}}<section class="sec light">
 
 page('wartung.html', {"title": "Wartung & Notdienst · WARMHERZ (Demo)", "desc": "Wartung für Wärmepumpe und Heizung, Notdienst im Winter rund um die Uhr.", "key": "wartung"},
 phero('p-wartung', 'Leistungen<span>/</span>Wartung & Notdienst', 'Wartung & Notdienst', 'Wenn es kalt wird, <em>sind wir da.</em>', 'Jährliche Wartung, Fernüberwachung auf Wunsch und im Winter ein Notdienst rund um die Uhr. Mit echten Menschen am Telefon.', btn('tel:+495210000099', 'Notdienst: 0521 000 00 99') + btn('foto-check.html', 'Störung per Foto melden', 'line')) +
-f'''{{{{> notdienst-flow}}}}<section class="sec light">
+f'''{{{{> notdienst-film}}}}{{{{> notdienst-flow}}}}<section class="sec light">
   <div class="wrap">
     <div class="sec-head"><div><p class="kicker">Wartungsvertrag</p><h2 class="reveal">Einmal im Jahr. <em>Dann haben Sie Ruhe.</em></h2></div><p class="sub">Beispielpreise für die Demo, zzgl. Material.</p></div>
     <div class="plans">
