@@ -9,7 +9,7 @@ Gilt zusätzlich zur globalen Masterfile (~/.claude/CLAUDE.md).
 - Vorgänger/Referenz: WÄRMEWERK-Demo (https://engelstraenen.github.io/demo-getlayers-01/pex-pr-preise-leere-punkte-v1/referenzen/waermewerk/), wirkte zu technisch/kalt.
 
 ## 2. Qualitätsanspruch & Referenzen
-- STIL A „SIGNAL“ (Eugen 18.11.2026, verbindlich): Schwarz #0E0E0E, Weiß, Papier #F2EFEA, EINE Akzentfarbe Signal-Orange #FF5B1F. Schrift: Bricolage Grotesque 800 (Überschriften, eng gesetzt) + Inter Tight (Text). NIE Kursivschrift, keine Serifen-Akzente, kein Braun/Creme/Petrol. Hervorhebung nur per Farbe.
+- STIL A „SIGNAL“ (Eugen 18.11.2026, verbindlich): Schwarz #0E0E0E, Weiß, Papier #F2EFEA, EINE Akzentfarbe Signal-Orange #FF5B1F. Schrift: IBM Plex Sans 700 (Überschriften, wie Werkakte-App, Eugen 18.11.2026) + Inter Tight (Text). Bricolage war „zu verspielt“. NIE Kursivschrift, keine Serifen-Akzente, kein Braun/Creme/Petrol. Hervorhebung nur per Farbe.
 - Gruppenfotos immer eng, in Interaktion, echt (nie in einer Reihe mit Abstand). Freier Platz = Foto erzählt es selbst (Armgeste/leerer Stuhl) + kräftiger orange Leuchtring mit Etikett, nie dünne gestrichelte Linie.
 - Jeder Button muss zum passenden Ziel führen (Chef → Kontakt/Anruf, Job-Button → Bewerbungs-Chat mit vorgewählter Stelle).
 - Fotos fotorealistisch über sjinn (Nano Banana 2, Unlimited), keine Schrift in Bildern.
@@ -42,7 +42,7 @@ Gilt zusätzlich zur globalen Masterfile (~/.claude/CLAUDE.md).
 - Konzept-Boards neu rendern: headless Chrome auf `konzepte/board.html#a|b|c` (2520×1560), dann `sips` → JPEG.
 
 ## 8. Offene Fragen
-- Feedback zu Stil A auf der ganzen Seite.
+- Feedback zu Stil A mit IBM Plex Sans.
 - Förderzahlen gegen BEG-Richtlinie prüfen.
 - Motion-Video vom Startbereich (GIF/MP4) noch offen.
 
