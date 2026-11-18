@@ -387,7 +387,7 @@ blockquote{font-family:var(--head);font-weight:800;font-size:clamp(36px,4.4vw,62
 
 /* FOOTER */
 .foot{background:#000;color:#BDBDBD;padding:70px 0 40px}
-.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px}
 .foot b{color:#fff;display:block;margin-bottom:8px}
 .foot a:hover{color:#fff}
 .foot .logo{color:#fff;margin-bottom:14px}
