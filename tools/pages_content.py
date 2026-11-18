@@ -19,6 +19,7 @@ def phero(img, crumb, kicker, h1, sub, ctas='', cls='', video=None):
     <h1 class="reveal">{h1}</h1>
     <p class="sub reveal">{sub}</p>
     {('<div class="ctas">' + ctas + '</div>') if ctas else ''}
+    {{{{> rating-chips}}}}
   </div>
 </section>
 '''
@@ -38,6 +39,7 @@ def phero_ba(crumb, kicker, h1, sub, ctas):
     <h1 class="reveal">{h1}</h1>
     <p class="sub reveal">{sub}</p>
     <div class="ctas">{ctas}</div>
+    {{{{> rating-chips}}}}
   </div>
 </section>
 '''
@@ -112,7 +114,7 @@ part('foto-teaser', f'''<!-- ============ FOTO-CHECK (TEASER) ============ -->
 
 # ------------------------------------------------------------------ Startseite
 page('index.html', {"title": "WARMHERZ · Heizung & Wärmepumpe in Bielefeld (Demo)", "desc": "Demo-Webseite eines fiktiven Familienbetriebs für Wärmepumpen, Heizung und Bad in Bielefeld.", "key": "start", "preload": "assets/img/h-luecke.webp"},
-'''{{> hero}}{{> band}}{{> foto-teaser}}{{> warmflug}}{{> leistungen-teaser}}{{> foerder-teaser}}{{> vorher-nachher}}{{> jobs-teaser}}{{> chef}}''' + cta('Lieber kurz sprechen? <br>Wir gehen ran.', ('tel:+495210000000', '0521 000 00 00 anrufen'), ('kontakt.html', 'Rückruf anfordern')))
+'''{{> hero}}{{> band}}{{> foto-teaser}}{{> warmflug}}{{> leistungen-teaser}}{{> foerder-teaser}}{{> vorher-nachher}}{{> bewertungen}}{{> jobs-teaser}}{{> chef}}{{> instagram}}''' + cta('Lieber kurz sprechen? <br>Wir gehen ran.', ('tel:+495210000000', '0521 000 00 00 anrufen'), ('kontakt.html', 'Rückruf anfordern')))
 
 # ------------------------------------------------------------------ Leistungen
 page('waermepumpe.html', {"title": "Wärmepumpe · WARMHERZ Bielefeld (Demo)", "desc": "Wärmepumpe vom Familienbetrieb: Luft-Wasser, Erdwärme oder Hybrid, raumweise berechnet, Einbau in 2–3 Tagen.", "key": "waermepumpe"},
@@ -203,7 +205,7 @@ f'''{{{{> notdienst-film}}}}{{{{> notdienst-flow}}}}<section class="sec light">
 <section class="sec"><div class="wrap duo"><div><p class="kicker">Störung?</p><h2 class="reveal">Fehlercode fotografieren. <em>Wir wissen Bescheid.</em></h2><p class="sub">Schicken Sie uns ein Foto vom Display und vom Typenschild. Murat sieht oft schon am Fehlercode, welches Teil er mitbringen muss.</p>
 <div class="dayvid-ctas">{btn('foto-check.html', 'Störung per Foto melden')}</div></div>
 <div class="split-img"><img src="assets/img/p-murat.webp" alt="Murat, Kundendienst" loading="lazy"></div></div></section>
-''' + cta('Heizung aus? Rufen Sie an.', ('tel:+495210000099', 'Notdienst anrufen'), ('foto-check.html', 'Foto-Check')))
+{{{{> bewertungen}}}}''' + cta('Heizung aus? Rufen Sie an.', ('tel:+495210000099', 'Notdienst anrufen'), ('foto-check.html', 'Foto-Check')))
 
 # ------------------------------------------------------------------ Förderung, Ablauf, Foto-Check
 page('foerderung.html', {"title": "Förderrechner Wärmepumpe 2026 · WARMHERZ (Demo)", "desc": "Zuschuss für die Wärmepumpe in einer Minute berechnen. Ab 1. Februar 2027 sinkt der Klimageschwindigkeitsbonus.", "key": "foerderung"},
@@ -314,6 +316,7 @@ f'''<section class="platz sub-top" id="jobs">
     {joblist}
     {apply}  </div>
 </section>
+{{{{> instagram}}}}
 ''')
 
 page('ausbildung.html', {"title": "Ausbildung Anlagenmechaniker/in SHK · WARMHERZ (Demo)", "desc": "Ausbildung bei WARMHERZ (Demo): Dein Tag als Azubi, was wir dir bieten, dein Weg bis zum Meister.", "key": "jobs"},
@@ -425,7 +428,7 @@ f'''<section class="sec light">
     <div class="split-img" style="aspect-ratio:4/5"><img src="assets/img/heinz.webp" alt="Heinz Brinkmann in der Werkstatt" loading="lazy" style="object-position:28% 40%"></div>
   </div>
 </section>
-''' + '{{> chef}}' + cta('Lernen Sie uns kennen.', ('kontakt.html', 'Kontakt aufnehmen'), ('jobs.html', 'Bei uns arbeiten')))
+''' + '{{> chef}}{{> bewertungen}}{{> instagram}}' + cta('Lernen Sie uns kennen.', ('kontakt.html', 'Kontakt aufnehmen'), ('jobs.html', 'Bei uns arbeiten')))
 
 page('kontakt.html', {"title": "Kontakt · WARMHERZ Bielefeld (Demo)", "desc": "WARMHERZ (Demo) erreichen: Telefon, Notdienst, Rückruf anfordern, Foto-Check.", "key": "kontakt"},
 '{{> kontakt}}' + f'''<section class="sec light">
@@ -445,3 +448,6 @@ legal('Impressum', '<p><b>Dies ist eine Demo-Webseite.</b> WARMHERZ ist eine erf
 page('datenschutz.html', {"title": "Datenschutz · WARMHERZ (Demo)", "desc": "Datenschutzhinweise der Demo-Webseite WARMHERZ.", "key": ""},
 legal('Datenschutz', '<p><b>Diese Demo sendet keine Daten.</b> Formulare, Foto-Check und Bewerbungs-Chat funktionieren nur in Ihrem Browser. Nichts wird gespeichert oder übertragen.</p><h2>Schriften und Skripte</h2><p>Alle Schriften und Skripte liegen auf dem eigenen Server. Es werden keine Google Fonts, keine Analyse-Tools und keine Cookies genutzt.</p><h2>Im echten Betrieb</h2><p>Für einen echten Betrieb erstellen wir eine vollständige Datenschutzerklärung, abgestimmt auf Formulare, Foto-Upload und die Werkakte-App.</p>'))
 print('Seiten geschrieben:', sorted(os.listdir(P)))
+
+import subprocess, sys as _s
+subprocess.run([_s.executable, os.path.join(os.path.dirname(os.path.abspath(__file__)), 'social_parts.py')], check=True)

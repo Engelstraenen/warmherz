@@ -10,7 +10,7 @@ import json, os, re, sys
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SRC, OUT = os.path.join(ROOT, 'src'), os.path.join(ROOT, 'site')
 VER = str(int(time.time()))
-layout = open(os.path.join(SRC, 'layout.html')).read()
+layout = open(os.path.join(SRC, 'layout.html')).read()  # Teile im Layout werden unten nach Definition von include aufgelöst
 
 def include(text, depth=0):
     def rep(m):
@@ -19,6 +19,7 @@ def include(text, depth=0):
         return include(open(p).read(), depth + 1)
     return re.sub(r'\{\{>\s*([\w-]+)\s*\}\}', rep, text) if depth < 5 else text
 
+layout = include(layout)
 built = []
 for fn in sorted(os.listdir(os.path.join(SRC, 'pages'))):
     if not fn.endswith('.html'): continue
