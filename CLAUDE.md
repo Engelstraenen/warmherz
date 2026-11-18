@@ -54,6 +54,7 @@ Gilt zusätzlich zur globalen Masterfile (~/.claude/CLAUDE.md).
 - Webseite: ?von= aus Job-Links an den Bewerbungs-Chat weitergeben.
 
 ## 9. Entschieden
+- 18./19.11.2026: Wartung-Video = Storyboard A (Ankunft im Schnee), Startbild A2 (Hände frei, 1 Koffer am Boden, kein Logo), Final MiniMax H3 2K + ffmpeg-Nachschärfung (cas+unsharp), Schlagwörter als HTML-Overlay synchron zur Videozeit (film.js), Handy lädt 720p. Vor jeder Final-Lieferung `python3 tools/video_check.py <video> <startbild>` + Gesicht alle 0,25 s prüfen.
 - 19.11.2026: Scroll-Geschichten (flow.js) auf Ablauf, Fußbodenheizung, Bad, Wartung; Heizungstausch-Kopfbild = Vorher/Nachher-Schieber. projektex.de hat eine KOPIE der Seite (kein iframe) → nach jedem Deploy muss Grogpot neu hochladen.
 - 19.11.2026 (Eugen): Alles immer auf GitHub pushen und öffentlich stellen, ohne Rückfrage. Website online: https://engelstraenen.github.io/warmherz/ · App-Demo: https://engelstraenen.github.io/werkakte/
 - 18.11.2026 (Claude, Eugen schläft, Vollmacht): Scroll-Video = MiniMax H3 (768p, ohne Kamin); Wan 3.0 verworfen (480p, Kamin passt nicht zu „ohne Öl/Gas“). Rechner auf KfW 458 korrigiert, Werbezahl „bis zu 22.400 €“ (80 %).
