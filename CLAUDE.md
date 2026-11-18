@@ -50,7 +50,8 @@ Gilt zusätzlich zur globalen Masterfile (~/.claude/CLAUDE.md).
 - Konzept-Boards neu rendern: headless Chrome auf `konzepte/board.html#a|b|c` (2520×1560), dann `sips` → JPEG.
 
 ## 8. Offene Fragen
-- Eugen schaut alles durch (Website + App online), danach Feedback.
+- 18.11.2026: Website von Eugen als fertig erklärt. projektex.de-Kopie aktualisiert Grok aus gh-pages.zip.
+- Optional: Gesicht im Notdienst-Film (~1 s) per neuem MiniMax-Lauf oder Upscale-Skill mit Gesichtsreparatur.
 - Webseite: ?von= aus Job-Links an den Bewerbungs-Chat weitergeben.
 
 ## 9. Entschieden
