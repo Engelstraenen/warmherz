@@ -49,7 +49,7 @@ Gilt zusätzlich zur globalen Masterfile (~/.claude/CLAUDE.md).
 - Konzept-Boards neu rendern: headless Chrome auf `konzepte/board.html#a|b|c` (2520×1560), dann `sips` → JPEG.
 
 ## 8. Offene Fragen
-- Eugens Feedback zu: mehrseitiger Website, Scroll-Video, App-Farben (Branch design/signal-farben in handwerker-app, noch nicht gemergt).
+- Eugens Feedback zu: mehrseitiger Website, Scroll-Video, App-Farben (Design „Signal“, seit 19.11.2026 in main der handwerker-app gemergt, noch nicht gepusht).
 - Veröffentlichung (GitHub Pages) nur nach OK.
 - App „Team & Nachwuchs“ (Job teilen, Bewerber-Akte, Berichtsheft) noch nicht gebaut.
 - Motion-Video vom Startbereich (GIF/MP4) noch offen.
