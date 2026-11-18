@@ -28,6 +28,12 @@ Gilt zusätzlich zur globalen Masterfile (~/.claude/CLAUDE.md).
 - sjinn.ai: in Chrome eingeloggt (17.11.2026) ✅
 - GitHub (Engelstraenen) ✅
 
+## 5b. Seitenstruktur (Eugen 18.11.2026)
+- Mehrseitig, nie wieder alles auf einer langen Seite: Landing (index) kurz und stark mit Teasern, jede Leistung/Karriere/Service als eigene Unterseite.
+- Seiten: index, waermepumpe, heizungstausch, fussbodenheizung, bad, wartung, foerderung, ablauf, foto-check, jobs, ausbildung, fachkraefte, ueber-uns, kontakt, impressum, datenschutz.
+- Lange Scroll-Storys nur auf Unterseiten (z. B. „Dein Tag“ auf ausbildung.html), nie auf der Landing.
+- Foto-Check (3–5 Fotos + Beschreibung → Akte in Werkakte) = Produktidee für ALLE Handwerkskunden von PROJEKT EX.
+
 ## 6. Workflow & Freigabepunkte
 1. Konzept-Boards (A Zwei Türen, B Ein Tag mit Lukas, C Hier fehlt noch jemand) → Eugen wählt/kombiniert
 2. Fotos auf sjinn (4K, 16:9), Eugen sieht sie im Chat
@@ -35,6 +41,7 @@ Gilt zusätzlich zur globalen Masterfile (~/.claude/CLAUDE.md).
 4. Veröffentlichen (GitHub Pages) nur nach OK
 
 ## 7. Befehle
+- Seiten bauen: `python3 tools/pages_content.py && python3 tools/build.py` (src/layout.html + src/pages + src/parts → site/, prüft alle internen Links). NIE site/*.html direkt bearbeiten.
 - Seite lokal: `cd site && python3 -m http.server 4360 --bind 127.0.0.1` → http://localhost:4360
 - Vorschau-Modus für First Frames: `?shot=<section-id>` (zeigt nur diesen Abschnitt, Animationen eingefroren), dazu `&scene=<0-6>`, `&hover=<selector>`, `&hide=<selector>`, `&chat`. Rendern: `tools/shot.sh "?shot=foerderung" 1440 900 out.png`.
 - First-Frame-Boards: `konzepte/firstframe.html#<0-12>` mit headless Chrome 2400×1260.
@@ -47,6 +54,8 @@ Gilt zusätzlich zur globalen Masterfile (~/.claude/CLAUDE.md).
 - Motion-Video vom Startbereich (GIF/MP4) noch offen.
 
 ## 9. Entschieden
+- 18.11.2026: Diashow-Video (Fotos mit Kamerafahrt) abgelehnt → echtes Video über sjinn. Landing bekommt Scroll-Video „Von −10 °C auf 21 °C“ (Startbild-Wahl offen).
+- 18.11.2026: Mehrseitige Website mit Baukasten, Karriere-Bereich (Jobs/Ausbildung/Fachkräfte), Foto-Check-Seite.
 - 18.11.2026: Stil A „Signal“ gewählt. Startfoto h-luecke (Armgeste in die Lücke), Jobs-Einstieg h-stuhl (leerer Stuhl, Kaffee). Neuer Kontaktbereich mit Rückruf-Formular und Themenvorwahl.
 - 18.11.2026: Konzept B + C kombiniert (Teamfoto mit Lücke + Ein Tag mit Lukas + Countdown). Dazu Leistungen, Wärmepumpe interaktiv, Förderrechner, Vorab-Check, Karriere mit Chat-Bewerbung, Chef/Nachfolge.
 - 18.11.2026: Statische Seite in `site/` (HTML/CSS/JS, GSAP 3.12.5 + Schriften Fraunces/Manrope lokal, kein Google-Abruf). Fotos 4K von sjinn → WebP 2000–2400 px.
