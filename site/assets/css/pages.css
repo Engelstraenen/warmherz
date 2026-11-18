@@ -172,14 +172,12 @@ body[data-page="foto-check"] .fab-foto{display:none}
 .fh-chip{font-family:var(--head);font-weight:600;font-size:14px;letter-spacing:.02em;color:#fff;background:rgba(14,14,14,.55);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.14);padding:7px 12px;border-radius:999px;opacity:0;transform:translateY(-8px);transition:opacity .5s var(--ease),transform .5s var(--ease)}
 .fh-chip b{font-weight:700;font-variant-numeric:tabular-nums;color:var(--acc)}
 .fh-chip.on{opacity:1;transform:none}
-.film-stage{position:relative;height:calc(clamp(40px,6.6vw,100px) * 1.95)}
+.film-stage{position:relative}
 .film-hero h1.film-h1{font-size:clamp(40px,6.6vw,100px);line-height:.95;max-width:none}
-.film-stage .fw,.film-stage .film-h1{position:absolute;left:0;bottom:0;margin:0}
+.film-stage .film-h1{margin:0}
 .fw{white-space:nowrap;font-family:var(--head);font-weight:700;letter-spacing:-.035em;line-height:.95;font-size:clamp(40px,6.6vw,100px);color:#fff;text-shadow:0 2px 30px rgba(0,0,0,.45);opacity:0;transform:translateX(-28px);clip-path:inset(-10% 100% -10% 0);transition:opacity .45s var(--ease),transform .7s var(--ease),clip-path .7s var(--ease)}
 .fw.on{opacity:1;transform:none;clip-path:inset(-10% -2% -10% 0)}
 .fw.gone{opacity:0;transform:translateX(18px);transition-duration:.35s}
-.film-h1{opacity:0;transform:translateY(18px);transition:opacity .6s var(--ease),transform .7s var(--ease)}
-.film-h1.on{opacity:1;transform:none}
 .film-hero .ctas{margin-top:26px}
 .film-sound{display:inline-flex;align-items:center;gap:10px}
 .film-sound .ic{width:16px;height:13px;background:currentColor;clip-path:polygon(0 30%,30% 30%,62% 0,62% 100%,30% 70%,0 70%)}
@@ -191,7 +189,6 @@ body[data-page="foto-check"] .fab-foto{display:none}
   .film-hero{min-height:84vh}
   .film-hud{top:84px;right:16px;gap:6px}
   .fh-chip{font-size:12px;padding:5px 9px}
-  .film-stage{height:calc(clamp(34px,10vw,48px) * 2)}
   .fw,.film-h1{font-size:clamp(34px,10vw,48px)}
   .fw{white-space:normal;max-width:12ch}
 }

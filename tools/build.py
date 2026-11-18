@@ -5,9 +5,11 @@ src/pages/*.html = Seiteninhalt, erste Zeile: <!--{"title": "...", "desc": "..."
 src/parts/*.html = wiederverwendbare Abschnitte, im Seiteninhalt einbinden mit {{> name}}
 Nutzung: python3 tools/build.py   -> schreibt site/<seite>.html
 """
+import time
 import json, os, re, sys
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SRC, OUT = os.path.join(ROOT, 'src'), os.path.join(ROOT, 'site')
+VER = str(int(time.time()))
 layout = open(os.path.join(SRC, 'layout.html')).read()
 
 def include(text, depth=0):
@@ -26,7 +28,7 @@ for fn in sorted(os.listdir(os.path.join(SRC, 'pages'))):
     page = layout.replace('{{title}}', meta['title']).replace('{{desc}}', meta['desc']).replace('{{key}}', meta.get('key', ''))
     pre = meta.get('preload')
     page = page.replace('{{preload}}', f'<link rel="preload" href="{pre}" as="image">\n' if pre else '')
-    page = page.replace('{{body}}', body)
+    page = page.replace('{{body}}', body).replace('{{ver}}', VER)
     key = meta.get('key')
     if key:  # aktiven Menüpunkt markieren
         page = page.replace(f'data-key="{key}"', f'data-key="{key}" aria-current="page"')
