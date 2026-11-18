@@ -70,7 +70,7 @@ part('foto-teaser', f'''<!-- ============ FOTO-CHECK (TEASER) ============ -->
   <div class="wrap check-grid">
     <div>
       <p class="kicker">Foto-Check</p>
-      <h2 class="reveal">Fotos schicken. <em>Wir kommen mit dem Richtigen.</em></h2>
+      <h2 class="reveal">3 Fotos schicken. <em>Wir wissen sofort Bescheid.</em></h2>
       <p class="sub">Heizung macht Probleme, Fleck an der Decke, neue Heizung geplant? Schicken Sie 3 bis 5 Fotos und zwei Sätze. Wir sehen sofort, was los ist, und bringen gleich das passende Teil mit.</p>
       <ul class="steps"><li><b>1</b>Thema wählen</li><li><b>2</b>3 bis 5 Fotos machen</li><li><b>3</b>Abschicken, wir melden uns heute</li></ul>
       <div class="dayvid-ctas">{btn('foto-check.html', 'Zum Foto-Check', 'dark')}</div>
@@ -91,7 +91,7 @@ part('foto-teaser', f'''<!-- ============ FOTO-CHECK (TEASER) ============ -->
 
 # ------------------------------------------------------------------ Startseite
 page('index.html', {"title": "WARMHERZ · Heizung & Wärmepumpe in Bielefeld (Demo)", "desc": "Demo-Webseite eines fiktiven Familienbetriebs für Wärmepumpen, Heizung und Bad in Bielefeld.", "key": "start", "preload": "assets/img/h-luecke.webp"},
-'''{{> hero}}{{> band}}{{> warmflug}}{{> leistungen-teaser}}{{> foerder-teaser}}{{> vorher-nachher}}{{> foto-teaser}}{{> jobs-teaser}}{{> chef}}''' + cta('Lieber kurz sprechen? <br>Wir gehen ran.', ('tel:+495210000000', '0521 000 00 00 anrufen'), ('kontakt.html', 'Rückruf anfordern')))
+'''{{> hero}}{{> band}}{{> foto-teaser}}{{> warmflug}}{{> leistungen-teaser}}{{> foerder-teaser}}{{> vorher-nachher}}{{> jobs-teaser}}{{> chef}}''' + cta('Lieber kurz sprechen? <br>Wir gehen ran.', ('tel:+495210000000', '0521 000 00 00 anrufen'), ('kontakt.html', 'Rückruf anfordern')))
 
 # ------------------------------------------------------------------ Leistungen
 page('waermepumpe.html', {"title": "Wärmepumpe · WARMHERZ Bielefeld (Demo)", "desc": "Wärmepumpe vom Familienbetrieb: Luft-Wasser, Erdwärme oder Hybrid, raumweise berechnet, Einbau in 2–3 Tagen.", "key": "waermepumpe"},

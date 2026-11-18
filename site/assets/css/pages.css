@@ -28,3 +28,28 @@
 
 .sel{display:block;width:100%;margin-top:10px;padding:14px 16px;border-radius:10px;border:2px solid var(--line-l);background:#fff;font:inherit;font-size:16px;font-weight:600;color:var(--ink)}
 .sel:focus{outline:none;border-color:var(--acc)}
+
+/* ===== Foto-Check überall sichtbar ===== */
+.nav-foto{display:inline-flex!important;align-items:center;gap:7px;color:#fff!important;border:2px solid var(--acc);padding:6px 12px;border-radius:999px;margin:-8px 0}
+.nav-foto svg{width:18px;height:18px;fill:none;stroke:var(--acc);stroke-width:2;stroke-linejoin:round}
+.nav-foto::after{display:none}
+.nav-foto:hover,.nav-foto[aria-current]{background:var(--acc)}
+.nav-foto:hover svg,.nav-foto[aria-current] svg{stroke:#fff}
+.fab-foto{position:fixed;right:20px;bottom:20px;z-index:60;display:flex;align-items:center;gap:12px;padding:12px 18px 12px 14px;border-radius:16px;background:var(--acc);color:#fff;box-shadow:0 16px 40px -12px rgba(255,91,31,.75),0 4px 14px rgba(0,0,0,.35);transition:transform .25s var(--ease),background .2s}
+.fab-foto:hover{transform:translateY(-3px);background:var(--acc-h)}
+.fab-foto svg{width:30px;height:30px;flex:none;fill:none;stroke:#fff;stroke-width:1.8;stroke-linejoin:round}
+.fab-foto span{display:flex;flex-direction:column;line-height:1.15}
+.fab-foto b{font-size:16px;font-weight:800}
+.fab-foto small{font-size:12px;opacity:.92;font-weight:600}
+body[data-page="foto-check"] .fab-foto{display:none}
+.hero-foto{display:flex;align-items:center;gap:10px;margin-top:4px;padding:10px 4px;color:#E6E6E6;font-size:15px;font-weight:500}
+.hero-foto svg{width:22px;height:22px;flex:none;fill:none;stroke:var(--acc);stroke-width:2;stroke-linejoin:round}
+.hero-foto b{color:#fff;font-weight:800}
+.hero-foto:hover b{color:var(--acc)}
+@media (max-width:1440px){.nav .links{gap:20px}}
+@media (max-width:1020px){.nav-foto{margin:0;align-self:flex-start}}
+@media (max-width:640px){
+  .fab-foto{right:12px;bottom:12px;left:12px;justify-content:center;padding:13px 16px}
+  .fab-foto small{display:none}
+  .foot{padding-bottom:110px}
+}
