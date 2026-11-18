@@ -323,6 +323,18 @@ f'''<section class="sec">
   </div>
 </section>
 ''' + day.replace('href="index.html#foerderung" class="door acc"><small>Das will ich auch</small>Zuschuss berechnen →', 'href="#bewerben" class="door acc" data-job="Ausbildung"><small>Das will ich machen</small>In 60 Sekunden bewerben →').replace('href="#bewerben" class="door white" data-job="Monteur/in"><small>Das will ich machen</small>In 60 Sekunden bewerben →', 'href="#zukunft" class="door white"><small>Und dann?</small>Dein Weg nach der Ausbildung →').replace('href="#foerderung" class="mini-calc"', 'href="foerderung.html" class="mini-calc"') +
+f'''<section class="sec" id="lernen">
+  <div class="wrap">
+    <div class="sec-head"><div><p class="kicker">Deine Ausbildung</p><h2 class="reveal">Das lernst du. <em>Jahr für Jahr.</em></h2></div><p class="sub">3,5 Jahre, abwechselnd Baustelle und Berufsschule. Du bist nie allein: Lukas ist dein fester Ansprechpartner.</p></div>
+    <ol class="path learn">
+      <li data-step="1"><b>1. Lehrjahr</b><small>Grundlagen</small><p>Werkzeug und Material kennenlernen. Rohre zuschneiden, pressen und löten. Heizkörper und Waschtische mit montieren.</p></li>
+      <li data-step="2"><b>2. Lehrjahr</b><small>Wasser & Heizung</small><p>Trinkwasser- und Abwasserleitungen verlegen, Bäder mit einbauen, Heizungen anschließen. Gesellenprüfung Teil 1.</p></li>
+      <li data-step="3"><b>3. Lehrjahr</b><small>Wärmepumpe</small><p>Wärmepumpen aufstellen und in Betrieb nehmen, Regelung und Elektrik verstehen, erste Kundengespräche.</p></li>
+      <li data-step="3½"><b>Letztes halbes Jahr</b><small>Prüfung</small><p>Störungen finden, Wartung, eigene kleine Aufträge unter Aufsicht. Gesellenprüfung Teil 2, danach Übernahme.</p></li>
+    </ol>
+  </div>
+</section>
+''' +
 f'''<section class="sec light" id="zukunft">
   <div class="wrap">
     <div class="sec-head"><div><p class="kicker">Deine Zukunft</p><h2 class="reveal">Vom Azubi bis zum <em>Chef.</em></h2></div><p class="sub">Heinz ist 61 und sucht jemanden, der den Betrieb weiterführt. Wer weiß, vielleicht bist das in zehn Jahren du.</p></div>
