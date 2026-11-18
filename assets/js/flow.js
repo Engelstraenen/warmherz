@@ -180,11 +180,34 @@
       return;
     }
 
-    flow.classList.add('on');
-    flow.style.setProperty('--n', N);
     const setAct = i => {
       dots.forEach((d, k) => { d.classList.toggle('act', k === i); d.classList.toggle('done', k < i); });
     };
+
+    /* Motion-Loop: läuft von allein in Dauerschleife, sobald sichtbar (kein Scrollen, kein Klicken nötig) */
+    if (flow.dataset.mode === 'loop') {
+      flow.classList.add('loop');
+      const body = flow.querySelector('.fl-steps');
+      const tl = gsap.timeline({ paused: true, repeat: -1, defaults: { ease: 'power2.out' },
+        onUpdate: () => setAct(Math.min(N - 1, Math.floor(tl.time()))) });
+      if (fill) tl.fromTo(fill, { scaleX: 0 }, { scaleX: 1, duration: N, ease: 'none' }, 0);
+      tl.fromTo(body, { opacity: 0 }, { opacity: 1, duration: .1 }, 0);
+      steps.forEach((st, i) => {
+        if (i > 0) tl.fromTo(st, { autoAlpha: 0, y: 24 }, { autoAlpha: 1, y: 0, duration: .12 }, i - .04);
+        if (i < N - 1) tl.to(st, { autoAlpha: 0, y: -24, duration: .1, ease: 'power2.in' }, i + .86);
+      });
+      scene && scene(tl, q, flow);
+      tl.to(body, { opacity: 0, duration: .12 }, N + .55);
+      tl.set({}, {}, N + .7);                       // Endbild kurz stehen lassen, dann von vorn
+      tl.timeScale(1 / (+flow.dataset.sec || 3.2)); // Sekunden pro Schritt
+      dots.forEach((d, k) => d.addEventListener('click', () => tl.time(k + .02)));
+      new IntersectionObserver(es => es[0].isIntersecting ? tl.play() : tl.pause(), { threshold: .35 }).observe(flow);
+      setAct(0);
+      return;
+    }
+
+    flow.classList.add('on');
+    flow.style.setProperty('--n', N);
     const tl = gsap.timeline({
       defaults: { ease: 'power2.out' },
       scrollTrigger: {
