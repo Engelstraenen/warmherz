@@ -142,3 +142,25 @@ body[data-page="foto-check"] .fab-foto{display:none}
 .ba-hero .ba-handle span{top:24%}
 .ba-hero .shade{background:linear-gradient(90deg,rgba(0,0,0,.55) 0%,rgba(0,0,0,0) 55%),linear-gradient(180deg,rgba(0,0,0,.45) 0%,rgba(0,0,0,0) 30%,rgba(0,0,0,.35) 55%,rgba(0,0,0,.9) 100%)}
 @media (max-width:640px){.ba-hero .ba-handle span{top:30%}}
+
+/* Motion-Loop (data-mode="loop"): läuft von allein, Bild links groß, Text rechts, Fortschritt unten */
+.story.loop .fl-stage{padding:10px 0 100px}
+.story.loop .fl-steps.shared{grid-template-columns:7fr 5fr;height:min(68vh,620px);margin-top:0}
+.story.loop .fl-art{order:-1;max-height:min(68vh,620px)}
+.story.loop .fl-texts{height:100%}
+.story.loop .shared .fl-step{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:0;visibility:hidden}
+.story.loop .shared .fl-step:first-child{visibility:visible}
+.story.loop .fl-rail{order:2;margin-top:28px}
+.story.loop .fl-rail li{cursor:pointer}
+.story.loop .fl-hint{display:none}
+.story.loop .fl-art{border-radius:20px}
+.story-head.paper,.story.paper{background:var(--paper);color:var(--ink)}
+.story.paper .fl-txt p,.story.paper .shared .fl-step p{color:#55504A}
+.story.paper .fl-rail li{color:#A39C93}.story.paper .fl-rail li i{background:#E3DED6;color:#7A746C}
+.story.paper .fl-rail li.act{color:var(--ink)}.story.paper .fl-rail li.done i{background:#F6D9CB}
+.story.paper .fl-track{background:#DCD7CF}
+@media (max-width:820px){
+  .story.loop .fl-steps.shared{grid-template-columns:1fr;height:auto;grid-template-rows:auto 220px}
+  .story.loop .fl-art{max-height:44vh}
+  .story.loop .fl-stage{padding:0 0 70px}
+}
