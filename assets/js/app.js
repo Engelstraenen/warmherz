@@ -41,6 +41,7 @@
 
   /* ---------- Punkte auf object-fit:cover-Bildern ---------- */
   function placeOn(box, img) {
+    if (!box || !img) return;
     const iw = img.naturalWidth, ih = img.naturalHeight; if (!iw) return;
     const bw = box.clientWidth, bh = box.clientHeight, sc = Math.max(bw / iw, bh / ih), rw = iw * sc, rh = ih * sc;
     const op = getComputedStyle(img).objectPosition.split(' ').map(v => parseFloat(v) / 100);
@@ -57,11 +58,12 @@
     const r = placeOn(pMedia, pImg);
     if (r) { const s = $('.spot', pMedia); pMedia.style.transformOrigin = `${parseFloat(s.style.left)}px ${parseFloat(s.style.top)}px`; }
   };
-  [heroImg, pImg].forEach(i => i.complete ? placeAll() : i.addEventListener('load', placeAll));
+  [heroImg, pImg].filter(Boolean).forEach(i => i.complete ? placeAll() : i.addEventListener('load', placeAll));
   addEventListener('resize', placeAll);
 
   /* Namenskarten */
   const card = $('.person-card');
+  if (card) {
   function showCard(p) {
     $$('.person').forEach(x => x.classList.toggle('on', x === p));
     card.querySelector('small').textContent = p.dataset.role;
@@ -82,9 +84,11 @@
     p.addEventListener('click', e => { e.preventDefault(); p.classList.contains('on') ? hideCard() : showCard(p); });
   });
 
+  }
+
   /* Wärmebild folgt der Maus */
   const hero = $('.hero');
-  hero.addEventListener('pointermove', e => {
+  if (hero) hero.addEventListener('pointermove', e => {
     const r = hero.getBoundingClientRect();
     hero.style.setProperty('--mx', (e.clientX - r.left) + 'px');
     hero.style.setProperty('--my', (e.clientY - r.top) + 'px');
@@ -120,6 +124,7 @@
 
   /* ---------- Ein Tag mit Lukas ---------- */
   const scenes = $$('.scene'), day = $('.day');
+  if (scenes.length) {
   const hh = $('[data-hh]'), mm = $('[data-mm]'), clabel = $('[data-clabel]'), prog = $('.progress span'), sun = $('.sun');
   let curMin = 6 * 60 + 58, anim;
   const toMin = t => { const [h, m] = t.split(':').map(Number); return h * 60 + m; };
@@ -147,6 +152,7 @@
   const sio = new IntersectionObserver(es => es.forEach(e => e.isIntersecting && activate(e.target)), { rootMargin: '-45% 0px -45% 0px' });
   scenes.forEach(s => sio.observe(s));
   setClock(curMin);
+  }
   if (SHOT) { $$('.reveal').forEach(e => e.classList.add('in')); scenes.forEach(x => x.classList.add('seen')); }
 
   if (hasGsap && !reduce) {
@@ -174,6 +180,7 @@
   }
 
   /* ---------- Wärmepumpe interaktiv ---------- */
+  if ($('[data-temp]')) {
   const HS = [
     ['Außengerät', 'Holt Wärme aus der Luft, sogar bei −15 °C. Steht leise im Garten, etwa so laut wie ein Kühlschrank in ein paar Metern Abstand.'],
     ['Inneneinheit & Speicher', 'Im Keller, wo früher der Öltank stand. Braucht etwa so viel Platz wie ein Kühlschrank. Den Rest des Raums bekommen Sie zurück.'],
@@ -230,8 +237,10 @@
     $('.warmglow').style.opacity = (1 - t * .5).toFixed(2);
   }
   temp.addEventListener('input', updateHP); updateHP();
+  }
 
   /* ---------- Förderrechner ---------- */
+  if ($('[data-cost]')) {
   const R = { grund: 30, klimaNow: 16, klimaLater: 12, einkommen: 30, effizienz: 5, max: 70, capNow: 28000, capLater: 27250 };
   const costIn = $('[data-cost]'), bars = $('[data-bars]');
   let shown = 0;
@@ -260,15 +269,19 @@
     (function run(n) { const k = Math.min(1, (n - t0) / 600), e = 1 - Math.pow(1 - k, 3); el.textContent = eur(from + (now - from) * e); if (k < 1) requestAnimationFrame(run); else shown = now; })(t0);
   }
   $$('.calc input').forEach(i => i.addEventListener('input', calc)); calc();
+  }
 
   /* ---------- Vorher / Nachher ---------- */
   const ba = $('[data-ba]');
+  if (ba) {
   const baImg = $('img', ba), hideBa = () => { $('#vorher-nachher').style.display = 'none'; };
   if (baImg.complete && !baImg.naturalWidth) hideBa(); else baImg.addEventListener('error', hideBa);
   $('[data-ba-range]').addEventListener('input', e => ba.style.setProperty('--p', e.target.value + '%'));
   if (hasGsap && !reduce) ScrollTrigger.create({ trigger: ba, start: 'top 70%', once: true, onEnter: () => gsap.fromTo(ba, { '--p': '85%' }, { '--p': '50%', duration: 1.6, ease: 'power3.inOut' }) });
+  }
 
   /* ---------- Vorab-Check ---------- */
+  if ($('[data-check-send]')) {
   $$('[data-slot]').forEach(inp => inp.addEventListener('change', () => {
     const f = inp.files[0]; if (!f) return;
     const slot = inp.closest('.slot');
@@ -276,13 +289,17 @@
     slot.querySelector('i').textContent = '✓';
   }));
   $('[data-check-send]').addEventListener('click', () => $('[data-check-done]').classList.add('show'));
+  }
 
   /* ---------- Kontakt: Thema vorwählen ---------- */
   const topicSel = $('[data-topic-select]');
+  if (topicSel) {
   $$('[data-topic]').forEach(a => a.addEventListener('click', () => { topicSel.value = a.dataset.topic; }));
   $('[data-contact]').addEventListener('submit', e => { e.preventDefault(); $('[data-form-ok]').classList.add('show'); });
+  }
 
   /* ---------- 60-Sekunden-Bewerbung ---------- */
+  if ($('[data-chat-log]')) {
   const log = $('[data-chat-log]'), quick = $('[data-chat-quick]'), form = $('[data-chat-form]'), txt = $('[data-chat-text]');
   const A = {};
   const flow = [
@@ -322,6 +339,17 @@
   cio.observe($('[data-chat]'));
   $$('[data-job]').forEach(b => b.addEventListener('click', () => { preJob = b.dataset.job; start(); }));
   if (SHOT && Q.has('chat')) ['Jonas', 'Gesell/in', 'Monteur/in'].forEach((a, i) => setTimeout(() => { start(); answer(a); }, 400 + i * 400));
+  }
+
+  /* ---------- Video: Pause-Knopf, spielt nur sichtbar ---------- */
+  $$('[data-vid]').forEach(v => {
+    const btn = v.parentElement.querySelector('[data-vid-toggle]');
+    if (reduce) { v.removeAttribute('autoplay'); v.pause(); if (btn) btn.textContent = '▶'; }
+    const set = () => { if (btn) { btn.textContent = v.paused ? '▶' : '❚❚'; btn.setAttribute('aria-label', v.paused ? 'Video abspielen' : 'Video anhalten'); } };
+    if (btn) btn.addEventListener('click', () => { v.paused ? v.play() : v.pause(); v.dataset.user = '1'; set(); });
+    v.addEventListener('play', set); v.addEventListener('pause', set);
+    new IntersectionObserver(es => es.forEach(e => { if (v.dataset.user || reduce) return; e.isIntersecting ? v.play().catch(() => {}) : v.pause(); }), { threshold: .25 }).observe(v);
+  });
 })();
 
 /* Vorschau-Hilfe für First Frames: ?shot=<id>[&scene=n][&hover=sel][&hide=sel][&y=px] */
