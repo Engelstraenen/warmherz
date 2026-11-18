@@ -16,7 +16,7 @@ Gilt zusätzlich zur globalen Masterfile (~/.claude/CLAUDE.md).
 
 ## 3. Regeln für dieses Projekt
 - Fiktive Marke, überall als Demo kennzeichnen. Keine echten Personen/Firmen.
-- Förderzahlen (16 % → 12 % ab 1.2.2027, max. förderfähige Kosten) vor Livegang gegen offizielle BEG-EM-Richtlinie (BAFA/KfW) prüfen.
+- Förderzahlen GEPRÜFT gegen KfW 458 (gültig ab 21.07.2026, Prüfung 18.11.2026): Grund 30 %, Klimabonus 16 % (−4 Pkt. halbjährlich ab 1.2.2027, Selbstnutzer), Einkommensbonus 40/30/10 % (≤30/40/50 Tsd. €, mit Kind +10 Tsd.), Deckel 70 % bzw. 80 % bei geringem Einkommen, förderfähig 28.000 € (−750 € halbjährlich ab 1.2.2027). Kein Effizienzbonus mehr aufgeführt. Wertschöpfungsbonus Q1/2027 geplant, Details offen. Vor Livegang erneut prüfen.
 
 ## 4. Skills, Plugins, Agenten, MCP
 | Name | wofür |
@@ -49,11 +49,13 @@ Gilt zusätzlich zur globalen Masterfile (~/.claude/CLAUDE.md).
 - Konzept-Boards neu rendern: headless Chrome auf `konzepte/board.html#a|b|c` (2520×1560), dann `sips` → JPEG.
 
 ## 8. Offene Fragen
-- Feedback zu Stil A mit IBM Plex Sans.
-- Förderzahlen gegen BEG-Richtlinie prüfen.
+- Eugens Feedback zu: mehrseitiger Website, Scroll-Video, App-Farben (Branch design/signal-farben in handwerker-app, noch nicht gemergt).
+- Veröffentlichung (GitHub Pages) nur nach OK.
+- App „Team & Nachwuchs“ (Job teilen, Bewerber-Akte, Berichtsheft) noch nicht gebaut.
 - Motion-Video vom Startbereich (GIF/MP4) noch offen.
 
 ## 9. Entschieden
+- 18.11.2026 (Claude, Eugen schläft, Vollmacht): Scroll-Video = MiniMax H3 (768p, ohne Kamin); Wan 3.0 verworfen (480p, Kamin passt nicht zu „ohne Öl/Gas“). Rechner auf KfW 458 korrigiert, Werbezahl „bis zu 22.400 €“ (80 %).
 - 18.11.2026: Diashow-Video (Fotos mit Kamerafahrt) abgelehnt → echtes Video über sjinn. Landing bekommt Scroll-Video „Von −10 °C auf 21 °C“ (Startbild-Wahl offen).
 - 18.11.2026: Mehrseitige Website mit Baukasten, Karriere-Bereich (Jobs/Ausbildung/Fachkräfte), Foto-Check-Seite.
 - 18.11.2026: Stil A „Signal“ gewählt. Startfoto h-luecke (Armgeste in die Lücke), Jobs-Einstieg h-stuhl (leerer Stuhl, Kaffee). Neuer Kontaktbereich mit Rückruf-Formular und Themenvorwahl.
