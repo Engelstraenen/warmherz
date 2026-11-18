@@ -1,0 +1,43 @@
+<!-- ============ FÖRDERRECHNER ============ -->
+<section class="calc light" id="foerderung">
+  <div class="wrap calc-grid">
+    <div class="calc-in">
+      <p class="kicker">Förderrechner · 1 Minute</p>
+      <h2 class="reveal">Wie viel bekommen <em>Sie</em> geschenkt?</h2>
+      <fieldset class="seg">
+        <legend>Sie wohnen selbst im Haus?</legend>
+        <label><input type="radio" name="owner" value="1" checked><span>Ja</span></label>
+        <label><input type="radio" name="owner" value="0"><span>Nein, vermietet</span></label>
+      </fieldset>
+      <fieldset class="seg">
+        <legend>Heute geheizt mit</legend>
+        <label><input type="radio" name="fuel" value="oel" checked><span>Öl</span></label>
+        <label><input type="radio" name="fuel" value="gas"><span>Gas</span></label>
+        <label><input type="radio" name="fuel" value="nacht"><span>Nachtspeicher</span></label>
+        <label><input type="radio" name="fuel" value="kohle"><span>Kohle</span></label>
+      </fieldset>
+      <label class="range">
+        <span>Kosten für Wärmepumpe und Einbau <b data-cost-out>32.000 €</b></span>
+        <input type="range" min="15000" max="50000" step="500" value="32000" data-cost aria-label="Kosten für Wärmepumpe und Einbau">
+      </label>
+      <div class="toggles">
+        <label class="tg"><input type="checkbox" data-income><span></span>Haushaltseinkommen unter 40.000 € im Jahr</label>
+        <label class="tg"><input type="checkbox" data-natural checked><span></span>Gerät mit natürlichem Kältemittel (z. B. Propan)</label>
+      </div>
+    </div>
+    <div class="calc-out">
+      <div class="result">
+        <small>Ihr Zuschuss, wenn Sie jetzt beauftragen</small>
+        <div class="big"><span data-grant-now>0</span> €</div>
+        <div class="bars" data-bars></div>
+        <div class="later">
+          <div><small>ab 1. Februar 2027</small><b><span data-grant-later>0</span> €</b></div>
+          <div class="loss"><small>Wer wartet, verliert</small><b>− <span data-loss>0</span> €</b></div>
+        </div>
+        <a href="foto-check.html" class="btn acc full">Weiter: Fotos schicken <span>→</span></a>
+        <p class="fine">Beispielrechnung, Stand November 2026, ohne Gewähr. Annahmen: Grundförderung 30 %, Klimageschwindigkeitsbonus 16 % (ab 1.2.2027: 12 %), Einkommensbonus 30 %, Effizienzbonus 5 %, höchstens 70 %. Förderfähige Kosten bis 28.000 € (ab 1.2.2027: 27.250 €). Verbindlich ist nur die aktuelle BEG-Richtlinie.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
